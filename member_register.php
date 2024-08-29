@@ -16,7 +16,7 @@ $email = $conn->real_escape_string($email);
 $usertype = $conn->real_escape_string($usertype);
 
 // Hash the password before storing it
-//$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 if ($usertype == 'donor') {
     $body_weight = $_POST['body_weight'];
@@ -48,9 +48,11 @@ if ($usertype == 'donor') {
         move_uploaded_file($_FILES['file_upload']['tmp_name'], $target_file);
     }
 
-    $insert = $conn->query("INSERT INTO donor (name, username, password, email, usertype, body_weight, body_height, age, blood_group, gender, dob, address, pincode, contact, file_upload) VALUES ('$fullname', '$username', '$password', '$email', '$usertype', '$body_weight', '$body_height', '$age', '$blood_group', '$gender', '$dob', '$address', '$pincode', '$contact', '$file_upload')");
+    // Insert donor data into the database
+    $insert = $conn->query("INSERT INTO donor (name, username, password, email, usertype, body_weight, body_height, age, blood_group, gender, dob, address, pincode, contact, file_upload) VALUES ('$fullname', '$username', '$hashed_password', '$email', '$usertype', '$body_weight', '$body_height', '$age', '$blood_group', '$gender', '$dob', '$address', '$pincode', '$contact', '$file_upload')");
 } else {
-    $insert = $conn->query("INSERT INTO recipient (name, username, password, email, usertype) VALUES ('$fullname', '$username', '$password', '$email', '$usertype')");
+    // Insert recipient data into the database
+    $insert = $conn->query("INSERT INTO recipient (name, username, password, email, usertype) VALUES ('$fullname', '$username', '$hashed_password', '$email', '$usertype')");
 }
 
 if ($insert) {

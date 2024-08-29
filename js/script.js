@@ -6,9 +6,17 @@ function validateForm() {
         alert("Please enter a valid email address.");
         return false;
     }
+
+    var password = document.getElementById('password').value;
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+    }
+
     var bodyWeight = document.getElementById('body_weight').value;
     var age = document.getElementById('age').value;
     var contact = document.getElementById('CONTACT').value;
+    var pincode = document.getElementById('PINCODE').value;
 
     if (bodyWeight && bodyWeight < 50) {
         alert("Body weight must be 50 kg or more.");
@@ -20,14 +28,19 @@ function validateForm() {
         return false;
     }
 
+    if (pincode && (pincode.length !== 6 || isNaN(pincode))) {
+        alert("Please enter a valid 6-digit Pincode.");
+        return false;
+    }
+
     if (contact && (contact.length !== 10 || isNaN(contact))) {
         alert("Please enter a valid Contact number.");
         return false;
     }
 
     return true;
-
 }
+
 
 // be come doner ..................
 // Function to toggle the visibility of the parent information section
