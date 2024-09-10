@@ -2,7 +2,6 @@
 include('..//connection.php');
 session_start();
 
-
 // Get form data
 $user_id = $_SESSION['user_id']; // The logged-in user's ID
 $user_type = $_SESSION['user_type']; 
@@ -40,18 +39,24 @@ if (isset($_FILES['file_upload']) && $_FILES['file_upload']['error'] == UPLOAD_E
 }
 
 // Prepare and bind
-$stmt = $conn->prepare("INSERT INTO blood_requests 
-    (user_id, user_type, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ississssssssssss", $user_id, $user_type, $name, $age, $blood_group, $reason_for_blood, $when_required, $unit, $hospital_name, $doctor_name, $gender, $address, $pincode, $contact, $email, $file_upload);
+$username = $_SESSION['username']; // Get username from session
 
-if ($stmt->execute()) {
-    header("Location: view_request_status.php");
-    exit(); // Ensure no further code is executed
-} else {
-    echo "Error: " . $stmt->error;
+// Prepare query based on user type
+$insert = $conn->query("INSERT INTO blood_request (donor_username, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
+    VALUES ('$username', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')");
+
+//$insert = $conn->query("INSERT INTO blood_request (username, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
+ //   VALUES ('".$_SESSION['username']."', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')");
+//$sql = "INSERT INTO blood_request ('username', 'name', 'age', 'blood_group', 'reason_for_blood', 'when_required', 'unit, hospital_name', 'doctor_name', 'gender', 'address', 'pincode', 'contact', 'email', 'file_upload') 
+  //  VALUES ('".$_SESSION['username']."', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')";
+//$stmt = $conn->prepare($sql)
+
+// Don't forget to use the right types for each parameter!
+//$stmt->bind_param("sssssssssssssss", $_SESSION['username'], $name, $age, $blood_group, $reason_for_blood, $when_required, $unit, $hospital_name, $doctor_name, $gender, $address, $pincode, $contact, $email, $file_upload);
+
+if($insert){
+    header('location:blood_request.php');
+}else {
+    header('location:blood_request.php');
 }
-
-$stmt->close();
-$conn->close();
 ?>

@@ -16,7 +16,7 @@
                 <div class="logo">
                     <img src="assets\images\img\Logo1.jpg" alt="Circulate Life Logo">
                 </div>
-                <h2>Register to your account</h2>
+                <h2  class="h2">Register to your account</h2>
                 <form action="member_register.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <input type="text" name="fullname" id="fullname" placeholder="Fullname" required>
                     <input type="email" name="email" id="email" placeholder="Email" required>

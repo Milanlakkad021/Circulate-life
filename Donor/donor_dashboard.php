@@ -27,13 +27,11 @@
         </div>
         <!-- END OVERVIEW -->
     </div>
-</div>
 <!-- END MAIN CONTENT -->
 </div>
 <!-- END MAIN -->
 </div>
 <?php include('donor_footer.php'); ?>
-
 
 </body>
 

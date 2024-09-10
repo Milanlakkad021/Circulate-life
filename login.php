@@ -15,7 +15,7 @@
                 <div class="logo">
                     <img src="assets\images\img\Logo1.jpg" alt="Criculate life Logo">
                 </div>
-                <h2>Login to your account</h2>
+                <h2 class="h2">Login to your account</h2>
                 <form action="logindata.php" method="post">
                     <input type="text" name="username" id="username" placeholder="Username" required="">
                     <input type="password" id="password" name="password" placeholder="Password" required="">

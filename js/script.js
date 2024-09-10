@@ -63,15 +63,16 @@ $(document).ready(function () {
     $("#dob").datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'dd-mm-yy'
+        dateFormat: 'yy-mm-dd'
     });
 
     // Initialize Datepicker for #wr
     $("#wr").datepicker({
-        dateFormat: "dd-mm-yy", // Format of the date
+        dateFormat: "yy-mm-dd", // Format of the date
         minDate: 0 // Restrict to select dates from today onwards
     });
 });
+
 
 
 // slide bar toggle

@@ -42,7 +42,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 							<span><?php echo $_SESSION['username']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#"><i class="lnr lnr-user"></i> My Profile</a>
+							<a class="dropdown-item" href="donor_personal_details.php"><i class="lnr lnr-user"></i> My Profile</a>
 							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i class="lnr lnr-exit"></i> Logout</a>
 						</div>
 					</li>
@@ -57,7 +57,6 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="donor_dashboard.php"><i class="lnr lnr-home"></i>Dashboard</a></li>
 						<li class="nav-item"><a class="nav-link" href="blood_request.php"><i class="lnr lnr-drop"></i>Request For Blood</a></li>
-						<li class="nav-item"><a class="nav-link" href="view_request_status.php"><i class="lnr lnr-drop"></i>View Status</a></li>
 					</ul>
 				</nav>
 			</div>

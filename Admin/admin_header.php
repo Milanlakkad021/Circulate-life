@@ -1,5 +1,5 @@
 <?php
-include('..//connection.php');
+include('../connection.php');
 session_start();
 
 if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
@@ -14,7 +14,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin Dashboard</title>
-	<link rel="stylesheet" href="..//css\bootstrap.min.css?v=<?php echo time(); ?>" >
+	<link rel="stylesheet" href="..//css\bootstrap.min.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="..//css/linearicons/style.css">
 	<link rel="stylesheet" href="admin-style.css?v=<?php echo time(); ?>">
 </head>
@@ -42,8 +42,9 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 							<span><?php echo $_SESSION['username']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#"><i class="lnr lnr-user"></i> My Profile</a>
-							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i class="lnr lnr-exit"></i> Logout</a>
+							<a class="dropdown-item" href="admin_personal_details.php"><i class="lnr lnr-user"></i> My Profile</a>
+							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i
+									class="lnr lnr-exit"></i> Logout</a>
 						</div>
 					</li>
 				</ul>
@@ -55,11 +56,16 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li class="nav-item"><a class="nav-link" href="admin_dashboard.php"><i class="lnr lnr-home"></i>Dashboard</a></li>
-						<li class="nav-item"><a class="nav-link" href="admin_receipent.php"><i class="lnr lnr-drop"></i>Recipent</a></li>
-						<li class="nav-item"><a class="nav-link" href="admin_donor.php"><i class="lnr lnr-drop"></i>Donor</a></li>
-						<li class="nav-item"><a class="nav-link" href="blood_storage.php"><i class="lnr lnr-drop"></i>Blood Storage</a></li>
-						<li class="nav-item"><a class="nav-link" href="blood_requests.php"><i class="lnr lnr-drop"></i>Blood Request</a></li>
+						<li class="nav-item"><a class="nav-link" href="admin_dashboard.php"><i
+									class="lnr lnr-home"></i>Dashboard</a></li>
+						<li class="nav-item"><a class="nav-link" href="admin_receipent.php"><i
+									class="lnr lnr-drop"></i>Recipent</a></li>
+						<li class="nav-item"><a class="nav-link" href="admin_donor.php"><i
+									class="lnr lnr-drop"></i>Donor</a></li>
+						<li class="nav-item"><a class="nav-link" href="blood_storage.php"><i
+									class="lnr lnr-drop"></i>Blood Storage</a></li>
+						<li class="nav-item"><a class="nav-link" href="blood_requests.php"><i
+									class="lnr lnr-drop"></i>Blood Request</a></li>
 					</ul>
 				</nav>
 			</div>

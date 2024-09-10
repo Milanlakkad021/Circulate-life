@@ -244,45 +244,32 @@
         <div class="container">
             <div class="row session-title">
                 <h2>Learn About Donation</h2>
-                <p>After donating blood, the body works to replenish the blood loss. This stimulates the production of
-                    new blood cells and in turn, helps in maintaining good health.</p>
             </div>
-            <!-- <div class="row">
-                <div class="col-md-3 col-sm-6 vd">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 vd">
                     <div class="bkjiu">
                         <img src="assets/images/gallery/g1.jpg" alt="">
-                        <h4><b>1 - </b>Registration</h4>
-                        <p>For as I have seen, I will come to a minimum, who takes up the exercise of our strength with
-                            the body of a child policy</p>
+                        <h4><b>1 - </b>Donor Registration</h4>
+                        <p>Join our network of donors and help those in need of blood for life-saving procedures.</p>
                         <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 vd">
+                <div class="col-md-4 col-sm-6 vd">
                     <div class="bkjiu">
                         <img src="assets/images/gallery/g2.jpg" alt="">
-                        <h4><b>2 - </b>Seeing</h4>
-                        <p>For as I have seen, I will come to a minimum, who takes up the exercise of our strength with
-                            the body of a child policy</p>
+                        <h4><b>2 - </b>Recipient Support</h4>
+                        <p>We assist recipients in finding compatible blood donors to ensure timely and safe transfusions.</p>
                         <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 vd">
+                <div class="col-md-4 col-sm-6 vd">
                     <div class="bkjiu">
                         <img src="assets/images/gallery/g3.jpg" alt="">
-                        <h4><b>3 - </b>Donation</h4>
-                        <p>Blood donation is the voluntary act of giving blood to help patients, potentially saving
-                            multiple lives with one donation.</p>
+                        <h4><b>3 - </b>Emergency Assistance</h4>
+                        <p>Our blood bank provides essential services to connect donors with recipients in urgent need.</p>
                         <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 vd">
-                    <div class="bkjiu">
-                        <img src="assets/images/gallery/g4.jpg" alt="">
-                        <h4><b>4 - </b>Save Life</h4>
-                        <p>Blood donation saves lives by providing vital transfusions for medical emergencies and treatments.</p>
-                        <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div> -->
             <div class="row">
                 <div class="col-md-6 image">
                     <img src="assets\images\slider\donationFact.webp" alt="">
