@@ -420,7 +420,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="detail">
-                            <p>Surat</p>
+                            <p>Station Road, Khangad Sheri, Begampura, Surat</p>
                         </div>
                     </div>
                     <div class="address-row">

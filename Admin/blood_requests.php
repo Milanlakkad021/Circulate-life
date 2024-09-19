@@ -8,7 +8,7 @@ include('../connection.php');
     <div class="container-fluid">
         <!-- OVERVIEW -->
         <?php 
-        $sql = "SELECT id, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload FROM blood_requests";
+        $sql = "SELECT id, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload FROM blood_request";
         $result = $conn->query($sql);
         ?>
         <h2>Blood Requests</h2>
