@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2024 at 07:41 AM
+-- Generation Time: Oct 06, 2024 at 12:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,28 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `username`, `password`, `email`, `usertype`) VALUES
-(1, 'Milan', 'admin', 'admin', 'milanlakkadstdy@gmail.com', 'admin');
+(2, 'Milan Lakkad', 'admin', '$2y$10$mM54bClyuupaWHp/XaH2IuiAdY4alk1sXqeDT0QMSKb9.HZCa.fhi', 'milanlakkadstdy3@gmail.com', 'recip');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blood_donation`
+--
+
+CREATE TABLE `blood_donation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `blood_group` enum('A+','A-','B+','B-','O+','O-','AB+','AB-') NOT NULL,
+  `unit` int(11) NOT NULL,
+  `donation_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blood_donation`
+--
+
+INSERT INTO `blood_donation` (`id`, `username`, `blood_group`, `unit`, `donation_date`) VALUES
+(1, 'donor', 'O+', 2, '2024-10-06 08:27:12');
 
 -- --------------------------------------------------------
 
@@ -87,23 +108,24 @@ INSERT INTO `blood_request` (`id`, `donor_username`, `recipient_username`, `name
 
 CREATE TABLE `blood_storage` (
   `id` int(11) NOT NULL,
-  `blood_type` varchar(10) DEFAULT NULL,
-  `units_available` int(11) DEFAULT NULL
+  `blood_group` varchar(10) DEFAULT NULL,
+  `unit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `blood_storage`
 --
 
-INSERT INTO `blood_storage` (`id`, `blood_type`, `units_available`) VALUES
-(1, 'A+', 4),
+INSERT INTO `blood_storage` (`id`, `blood_group`, `unit`) VALUES
+(1, 'A+', 6),
 (2, 'A-', 3),
 (3, 'B+', 8),
-(4, 'B-', 1),
+(4, 'B-', 5),
 (5, 'AB+', 3),
 (6, 'AB-', 2),
 (7, 'O+', 12),
-(8, 'O-', 6);
+(8, 'O-', 6),
+(9, 'O+', 2);
 
 -- --------------------------------------------------------
 
@@ -121,7 +143,7 @@ CREATE TABLE `donor` (
   `body_weight` decimal(5,2) DEFAULT NULL,
   `body_height` decimal(5,2) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
-  `blood_group` varchar(10) DEFAULT NULL,
+  `blood_group` enum('A+','A-','B+','B-','O+','O-','AB+','AB-') NOT NULL,
   `gender` enum('Male','Female','Other') DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `address` text DEFAULT NULL,
@@ -135,8 +157,7 @@ CREATE TABLE `donor` (
 --
 
 INSERT INTO `donor` (`id`, `name`, `username`, `password`, `email`, `usertype`, `body_weight`, `body_height`, `age`, `blood_group`, `gender`, `dob`, `address`, `pincode`, `contact`, `file_upload`) VALUES
-(1, 'Milan Lakkad', 'donor', 'donor', 'milanlakkadstdy2@gmail.com', 'donor', 55.00, 5.00, 20, 'O-', 'Male', '0000-00-00', 'Patel street , kotamoi,\r\nTa: jesar dist.: Bhavangar', '364280', '8974561325', 'Yoga.txt'),
-(8, 'Milan Lakkad', 'ddsfdsfsdf', '789456123', 'milanlakkadsdfsdftdy@gmail.com', 'donor', 50.00, 5.00, 19, 'AB+', 'Female', '2024-08-13', 'Nareshbhai Lakkad Patel Street Kotamoi', '364280', '1234657897', 'Yoga.txt');
+(1, 'Milan Lakkad', 'donor', '$2y$10$7puF/IefzCLoBPRShYLyu.9BTkoMiiR2fVs7i8VNXiKpvPkRqHrCm', 'milanlakkadstdy@gmail.com', 'donor', 55.00, 5.00, 20, 'O-', 'Male', '0000-00-00', 'Patel street , kotamoi,\r\nTa: jesar dist.: Bhavangar', '364280', '8974561325', 'Yoga.txt');
 
 -- --------------------------------------------------------
 
@@ -158,8 +179,7 @@ CREATE TABLE `recipient` (
 --
 
 INSERT INTO `recipient` (`id`, `name`, `username`, `password`, `email`, `usertype`) VALUES
-(1, 'Milan Lakkad', 'user', 'user', 'milanlakkadstdy1@gmail.com', 'recipient'),
-(19, '8787', 'sdfghjk', '$2y$10$ZG4/Pwjz4/Bta36KCkz6zu9mBV8o7o2v1HAzhmIRbxN5tiH2bM9g6', 'eeded@gmail.com', 'recipient');
+(1, 'Milan Lakkad', 'user', '$2y$10$diGzTpgveDtXEAa/Bka7UOJFrBD2eswVWLl.w10J7mog/dUa3.F/a', 'milanlakkadstdy1@gmail.com', 'recipient');
 
 --
 -- Indexes for dumped tables
@@ -172,6 +192,13 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `blood_donation`
+--
+ALTER TABLE `blood_donation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `blood_request`
@@ -211,6 +238,12 @@ ALTER TABLE `recipient`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `blood_donation`
+--
+ALTER TABLE `blood_donation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -223,23 +256,29 @@ ALTER TABLE `blood_request`
 -- AUTO_INCREMENT for table `blood_storage`
 --
 ALTER TABLE `blood_storage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `recipient`
 --
 ALTER TABLE `recipient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `blood_donation`
+--
+ALTER TABLE `blood_donation`
+  ADD CONSTRAINT `blood_donation_ibfk_1` FOREIGN KEY (`username`) REFERENCES `donor` (`username`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `blood_request`
