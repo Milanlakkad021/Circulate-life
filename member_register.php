@@ -57,7 +57,7 @@ if ($usertype == 'donor') {
 
 if ($insert) {
     $_SESSION['success'] = 'Registration successful!';
-    header('Location: index.html');
+    header('Location: login.php');
 } else {
     echo '<div class="alert alert-danger" style="background-color: red; color: white;">
             <strong>ERROR!</strong> There was an issue with your registration. Please try again.

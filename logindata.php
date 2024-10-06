@@ -5,28 +5,29 @@ session_start();
 // Retrieve form data
 $username = $_POST['username'];
 $password = $_POST['password'];
+$remember_me = isset($_POST['remember_me']);
 
 // Function to check user in a specific table
-function check_user_in_table($conn, $table, $username, $password) {
-    $stmt = $conn->prepare("SELECT * FROM $table WHERE username = ? AND password = ?");
-    $stmt->bind_param("ss", $username, $password);
+function check_user_in_table($conn, $table, $username) {
+    $stmt = $conn->prepare("SELECT * FROM $table WHERE username = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     return $stmt->get_result();
 }
 
 // Check in 'admin' table
-$result = check_user_in_table($conn, 'admin', $username, $password);
+$result = check_user_in_table($conn, 'admin', $username);
 $user_type = 'admin'; // Set user type
 
 if ($result->num_rows == 0) {
     // If not found in 'admin', check 'donor' table
-    $result = check_user_in_table($conn, 'donor', $username, $password);
+    $result = check_user_in_table($conn, 'donor', $username);
     $user_type = 'donor'; // Update user type
 }
 
 if ($result->num_rows == 0) {
     // If not found in 'donor', check 'recipient' table
-    $result = check_user_in_table($conn, 'recipient', $username, $password);
+    $result = check_user_in_table($conn, 'recipient', $username);
     $user_type = 'recipient'; // Update user type
 }
 
@@ -34,32 +35,49 @@ if ($result->num_rows == 0) {
 if ($result->num_rows == 1) {
     $fetch = $result->fetch_assoc();
 
-    // Store user ID, username, and type in session variables
-    $_SESSION['user_id'] = $fetch['id'];
-    $_SESSION['username'] = $fetch['username'];
-    $_SESSION['user_type'] = $user_type;
+    // Verify the password using password_verify
+    if (password_verify($password, $fetch['password'])) {
+        // Store user ID, username, and type in session variables
+        $_SESSION['user_id'] = $fetch['id'];
+        $_SESSION['username'] = $fetch['username'];
+        $_SESSION['user_type'] = $user_type;
 
-    // Redirect based on user type
-    switch ($user_type) {
-        case 'admin':
-            header('Location: Admin/admin_dashboard.php');
-            break;
-        case 'donor':
-            header('Location: Donor/donor_dashboard.php');
-            break;
-        case 'recipient':
-            header('Location: Recipient/recipient_dashboard.php');
-            break;
-        default:
-            $_SESSION['error'] = 'Unknown user type';
-            header('Location: login.php');
-            break;
+        // If "Remember me" is checked
+        if ($remember_me) {
+            // Set cookies for 30 days
+            setcookie('username', $fetch['username'], time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie('user_id', $fetch['id'], time() + (86400 * 30), "/");
+            setcookie('user_type', $user_type, time() + (86400 * 30), "/");
+        }
+
+        // Redirect based on user type
+        switch ($user_type) {
+            case 'admin':
+                header('Location: Admin/admin_dashboard.php');
+                break;
+            case 'donor':
+                header('Location: Donor/donor_dashboard.php');
+                break;
+            case 'recipient':
+                header('Location: Recipient/recipient_dashboard.php');
+                break;
+            default:
+                $_SESSION['error'] = 'Unknown user type';
+                header('Location: login.php');
+                break;
+        }
+        exit(); // Ensure no further code is executed
+    } else {
+        // If password is incorrect
+        $_SESSION['error'] = 'Invalid password';
+        header('Location: login.php');
+        exit();
     }
-    exit(); // Ensure no further code is executed
 } else {
-    // If no valid user is found, redirect back to login page with an error
-    $_SESSION['error'] = 'Invalid username or password';
-    header('Location: login.php'); 
+    // If no valid user is found
+    $_SESSION['error'] = 'Invalid username';
+    header('Location: login.php');
     exit();
 }
+
 ?>

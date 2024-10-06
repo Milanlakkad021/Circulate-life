@@ -12,7 +12,7 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            <div class="login-left" id="login-left">
+            <div class="login-left">
                 <div class="logo">
                     <img src="assets\images\img\Logo1.jpg" alt="Circulate Life Logo">
                 </div>
@@ -20,7 +20,8 @@
                 <form action="member_register.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <input type="text" name="fullname" id="fullname" placeholder="Fullname" required>
                     <input type="email" name="email" id="email" placeholder="Email" required>
-                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <input type="text" name="username" id="username" placeholder="Username" required onkeyup="checkUsername()">
+                    <span id="usernameStatus"></span>
                     <input type="password" id="password" name="password" placeholder="Password" required>
                     <div class="become_donor">
                         <input type="checkbox" id="show-parent-info" onclick="toggleParentInfo()">
@@ -59,18 +60,15 @@
                             placeholder="Full Address"></textarea><br>
                         <input type="number" name="pincode" id="PINCODE" placeholder="Pincode"><br>
                         <input type="number" name="contact" id="CONTACT" placeholder="Contact No."><br><br>
-                        <label>Upload your Health Reports:</label><br>
-                        <input type="file" name="file_upload" id="file_upload"><br>
+                        <label>Upload your Health Reports (PDF only):</label><br>
+                        <input type="file" name="file_upload" id="file_upload" accept=".pdf"><br>
                     </div>
-                    <input type="hidden" name="usertype" id="usertype" value="recipient">
+                    <input type="hidden" name="usertype" id="usertype" value="recipient" accept=".pdf">
                     <button type="submit">REGISTER</button>
                 </form>
                 <div class="not-member">
                     <a href="login.php">A Member?</a>
                 </div>
-            </div>
-            <div class="login-right" id="login-right">
-                <h1>Welcome To Circulate Life</h1>
             </div>
         </div>
     </div>
@@ -78,9 +76,7 @@
     <script src="//code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="js\script.js?v=<?php echo time(); ?>"></script>
     <script src="js/bootstrap.min.js"></script>
- <script>
-    // const checkbox = document.getElementById('show-parent-info');
-
+ <!-- <script>
 function toggleParentInfo() {
      var parentInfo = document.getElementById("parent-info");
      var userType = document.getElementById("usertype");
@@ -91,12 +87,8 @@ function toggleParentInfo() {
          parentInfo.classList.add("hidden");
          userType.value = "recipient";
      }
-    //  if(checkbox.checked){
-    //      console.log('usertype:donor');
-    //  }else{
-    //      console.log('usertype:recipient');
-    //  }
-}</script>
+
+}</script> -->
 </body>
 
 </html>

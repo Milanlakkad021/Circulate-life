@@ -28,9 +28,9 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<form class="form-inline">
-							<input class="form-control mr-sm-2" type="search" placeholder="Search dashboard..."
-								aria-label="Search">
-							<button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
+							<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search dashboard..." aria-label="Search"> -->
+							<!-- <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button> -->
+							<img src="../assets/images/Circulate Life.png" alt="Avatar" style="height:80px;">
 						</form>
 					</li>
 				</ul>
@@ -42,9 +42,12 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 							<span><?php echo $_SESSION['username']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="admin_personal_details.php"><i class="lnr lnr-user"></i> My Profile</a>
+							<a class="dropdown-item" href="admin_dashboard.php"><i
+									class="lnr lnr-home"></i>Dashboard</a>
+							<a class="dropdown-item" href="admin_personal_details.php"><i class="lnr lnr-user"></i>My
+								Profile</a>
 							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i
-									class="lnr lnr-exit"></i> Logout</a>
+									class="lnr lnr-exit"></i>Logout</a>
 						</div>
 					</li>
 				</ul>

@@ -19,19 +19,18 @@
                 <form action="logindata.php" method="post">
                     <input type="text" name="username" id="username" placeholder="Username" required="">
                     <input type="password" id="password" name="password" placeholder="Password" required="">
-                    <!-- <div class="remember-me">
-                        <input type="checkbox" id="remember-me">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember_me">
                         <label for="remember-me">Remember me</label>
-                    </div> -->
+                    </div>
                     <button type="submit">LOGIN</button>
                 </form>
                 <div class="not-member">
-                    <a href="register.php">Not A Member?</a>
+                    <a href="forgot_password.php">Forgot Password?</a><br>
+                    <a href="register.php">New Member?</a>
                 </div>
             </div>
-            <div class="login-right">
-                <h1>Welcome To Circulate Life</h1>
-            </div>
+
         </div>
     </div>
     <!-- Js files -->

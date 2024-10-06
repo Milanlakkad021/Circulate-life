@@ -40,6 +40,41 @@ function validateForm() {
 
     return true;
 }
+//  Change usertype autometicaly
+function toggleParentInfo() {
+    var parentInfo = document.getElementById("parent-info");
+    var userType = document.getElementById("usertype");
+    if (parentInfo.classList.contains("hidden")) {
+        parentInfo.classList.remove("hidden");
+        userType.value = "donor";
+    } else {
+        parentInfo.classList.add("hidden");
+        userType.value = "recipient";
+    }
+
+}
+
+//  Check username availability check
+function checkUsername() {
+    const username = document.getElementById('username').value;
+    const usernameStatus = document.getElementById('usernameStatus');
+
+    if (username.length >= 5) {
+        fetch(`check_username.php?username=${username}`)
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'available') {
+                    usernameStatus.innerHTML = '<span style="color: green;  display: block; margin-bottom: 20px; text-align: center;">Username is available!</span>';
+                } else if (data === 'taken') {
+                    usernameStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Username is already taken!</span>';
+                } else {
+                    usernameStatus.innerHTML = '<span style="color: orange;  display: block; margin-bottom: 20px; text-align: center;">Error checking username.</span>';
+                }
+            });
+    } else {
+        usernameStatus.innerHTML = '<span style="color: red;  display: block; margin-bottom: 20px; text-align: center;">Username must be at least 5 characters.</span>';
+    }
+}
 
 
 // be come doner ..................

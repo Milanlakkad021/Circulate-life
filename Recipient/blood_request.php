@@ -1,6 +1,5 @@
 <?php include('recipient_header.php'); ?>
 <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
-<link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
@@ -12,7 +11,7 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
     <div class="container-fluid">
-    <h2 style="text-align: none;">Request Information</h2>
+      <h2 style="text-align: none;">Request Information</h2>
       <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#needblood">Request For
           Blood</button></p> <br>
       <table class="table table-bordered">
@@ -92,8 +91,8 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
+        <h4 class="modal-title">Request For Blood</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Need For Blood</h4>
       </div>
       <div class="modal-body">
         <form action="blood_request_data.php" method="post" enctype="multipart/form-data">
@@ -132,8 +131,8 @@
             <input type="number" name="contact" id="CONTACT" placeholder="Contact No.">
           </div>
           <input type="email" name="email" id="email" placeholder="Email" required>
-          <label>Upload Health Reports:</label><br>
-          <input type="file" name="file_upload" id="file_upload"><br>
+          <label>Upload your Health Reports (PDF only):</label><br>
+          <input type="file" name="file_upload" id="file_upload" accept=".pdf"><br>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -1,48 +1,81 @@
 <?php include('admin_header.php');
 include('../connection.php'); ?>
+<link rel="stylesheet" href="admin-style.css?v=<?php echo time(); ?>">
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="container-fluid">
-
-    <?php
-    // Fetch data from the blood_storage table
-    $sql = "SELECT * FROM blood_storage";
-    $result = $conn->query($sql);
-    ?>
-    <h2>Blood Storage</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Blood Type</th>
-                <th>Units Available</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($result->num_rows > 0): ?>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($row['id']); ?></td>
-                        <td><?php echo htmlspecialchars($row['blood_type']); ?></td>
-                        <td><?php echo htmlspecialchars($row['units_available']); ?></td>
-                        <td>
-                            <a href="edit_blood_storage.php?id=<?php echo $row['id']; ?>" class="edit-btn">Edit</a>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
+        <h2>Blood Storage</h2>
+        <p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBloodEntry">
+                Add Blood Entry
+            </button>
+        </p>
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td colspan="5">No data found</td>
+                    <th>ID</th>
+                    <th>Blood Type</th>
+                    <th>Units Available</th>
+                    <th>Action</th>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                $members = $conn->query("SELECT * FROM blood_storage");
+                while ($row = $members->fetch_array()) {
+                    ?>
 
-    <?php $conn->close(); ?>
-</div>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['blood_group']; ?></td>
+                        <td><?php echo $row['unit']; ?></td>
+                        <td><a href="edit_blood_storage.php?id=<?php echo $row['id']; ?>" class="edit-btn">Edit</a></td>
+                    </tr>
+                <?php }
+                ?>
+            </tbody>
+        </table>
+
+
+    </div>
 </div>
 
+<div class="modal fade" id="addBloodEntry" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Blood Entry</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="add_blood_entry.php" method="post" enctype="multipart/form-data">
+                    <input type="text" name="donor_username" id="donor_username" placeholder="Donor Username" required>
+                    <div class="inline-fields">
+                        <select name="blood_group" id="blood_group" required>
+                            <option value="">Select Blood Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                        <input type="number" name="unit" id="unit" placeholder="Unit" min="1" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="addBloodEntry">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php $conn->close(); ?>
 <?php include('admin_footer.php'); ?>
 </body>
 

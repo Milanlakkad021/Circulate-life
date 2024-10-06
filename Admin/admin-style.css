@@ -709,3 +709,18 @@ th {
 .panel-footer {
     background-color: #fafafa;
 }
+
+/********************
+ * Edit Blood Storege
+ ********************/
+input[type="text"],
+input[type="number"],
+select[name="blood_group"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    
+}

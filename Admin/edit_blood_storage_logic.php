@@ -19,10 +19,10 @@ if ($result->num_rows > 0) {
 
 // Handle form submission for updating the record
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $blood_type = $_POST['blood_type'];
-    $units_available = $_POST['units_available'];
+    $blood_type = $_POST['blood_group'];
+    $units_available = $_POST['unit'];
     
-    $update_sql = "UPDATE blood_storage SET blood_type='$blood_type', units_available='$units_available' WHERE id=$id";
+    $update_sql = "UPDATE blood_storage SET blood_group='$blood_type', unit='$units_available' WHERE id=$id";
 
     if ($conn->query($update_sql) === TRUE) {
         // Redirect after successful update

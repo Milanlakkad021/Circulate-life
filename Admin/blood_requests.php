@@ -12,7 +12,7 @@ include('../connection.php');
         $result = $conn->query($sql);
         ?>
         <h2>Blood Requests</h2>
-        <table>
+        <table border="1">
             <tr>
                 <th>Id</th>
                 <th>Fullname</th>
@@ -49,9 +49,17 @@ include('../connection.php');
                         <td>" . $row["address"] . "</td>
                         <td>" . $row["pincode"] . "</td>
                         <td>" . $row["contact"] . "</td>
-                        <td>" . $row["email"] . "</td>
-                        <td>" . $row["file_upload"] . "</td>
-                        <td>
+                        <td>" . $row["email"] . "</td>";
+
+                    // Check if file upload exists and create a link with the original file name
+                    if (!empty($row["file_upload"])) {
+                        $file_path = '../uploads/' . $row["file_upload"];
+                        echo "<td><a href='$file_path' target='_blank'>" . $row["file_upload"] . "</a></td>";
+                    } else {
+                        echo "<td>No file uploaded</td>";
+                    }
+
+                    echo "<td>
                             <form action='handle_request.php' method='POST' style='display:inline-block; margin-bottom: 5px;'>
                                 <input type='hidden' name='request_id' value='" . $row["id"] . "'>
                                 <button type='submit' name='action' value='accept' class='edit-btn'>Accept</button>
