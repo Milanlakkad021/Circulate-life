@@ -32,7 +32,7 @@ $total_user_count = $recipient_count + $donor_count;
                     <div class="col-md-4">
                         <div class="card shadow-sm">
                             <div class="card-body text-center">
-                                <span class="mb-3" style="font-size: 24px;">👤</span>
+                                <span class="mb-3" style="font-size: 24px;"><i class="lnr lnr-users"></i></span>
                                 <h5 class="card-title"><?php echo $recipient_count; ?></h5>
                                 <p class="text-muted">Recipient</p>
                             </div>
@@ -41,7 +41,7 @@ $total_user_count = $recipient_count + $donor_count;
                     <div class="col-md-4">
                         <div class="card shadow-sm">
                             <div class="card-body text-center">
-                                <span class="mb-3" style="font-size: 24px;">👤</span>
+                                <span class="mb-3" style="font-size: 24px;"><i class="lnr lnr-users"></i></span>
                                 <h5 class="card-title"><?php echo $donor_count; ?></h5>
                                 <p class="text-muted">Donor</p>
                             </div>
@@ -50,9 +50,9 @@ $total_user_count = $recipient_count + $donor_count;
                     <div class="col-md-4">
                         <div class="card shadow-sm">
                             <div class="card-body text-center">
-                                <span class="mb-3" style="font-size: 24px;">👤</span>
+                                <span class="mb-3" style="font-size: 24px;"><i class="lnr lnr-users"></i></span>
                                 <h5 class="card-title"><?php echo $total_user_count; ?></h5>
-                                <p class="text-muted">Total User</p>
+                                <p class="text-muted">Total Users</p>
                             </div>
                         </div>
                     </div>

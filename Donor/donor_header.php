@@ -1,5 +1,5 @@
 <?php
-include('..//connection.php');
+include('../connection.php');
 session_start();
 
 if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
@@ -14,6 +14,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Donor Dashboard</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="..//css\bootstrap.min.css?v=<?php echo time(); ?>">
 	<link rel="stylesheet" href="..//css/linearicons/style.css">
 	<link rel="stylesheet" href="donor_style.css?v=<?php echo time(); ?>">
@@ -38,7 +39,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img src="../assets\images\img\user.png" class="img-circle" alt="Avatar">
+							<!-- <img src="../assets\images\img\user.png" class="img-circle" alt="Avatar"> -->
 							<span><?php echo $_SESSION['username']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -46,7 +47,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-home"></i>Dashboard</a>
 							<a class="dropdown-item" href="donor_personal_details.php"><i class="lnr lnr-user"></i> My
 								Profile</a>
-							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i
+							<a class="dropdown-item"  data-toggle="modal" data-target="#logout"><i
 									class="lnr lnr-exit"></i> Logout</a>
 						</div>
 					</li>
@@ -64,7 +65,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 						<li class="nav-item"><a class="nav-link" href="blood_request.php"><i
 									class="lnr lnr-drop"></i>Request For Blood</a></li>
 						<li class="nav-item"><a class="nav-link" href="donor_donetion.php"><i
-									class="lnr lnr-drop"></i>Donetion</a></li>
+									class="lnr lnr-history"></i>Donet History</a></li>
 					</ul>
 				</nav>
 			</div>

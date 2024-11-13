@@ -16,25 +16,28 @@
                 <div class="logo">
                     <img src="assets\images\img\Logo1.jpg" alt="Circulate Life Logo">
                 </div>
-                <h2  class="h2">Register to your account</h2>
-                <form action="member_register.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-                    <input type="text" name="fullname" id="fullname" placeholder="Fullname" required>
-                    <input type="email" name="email" id="email" placeholder="Email" required>
-                    <input type="text" name="username" id="username" placeholder="Username" required onkeyup="checkUsername()">
+                <h2 class="h2">Register to your account</h2>
+                <form action="member_register.php" method="post" enctype="multipart/form-data"
+                    onsubmit="return validateForm()">
+                    <input type="text" name="fullname" id="fullname" placeholder="Fullname" onkeypress="return blockNumbers(event)" onblur="capitalizeFirstLetter('fullname')" required>
+                    <!-- <input type="email" name="email" id="email" placeholder="Email" required> -->
+                    <input type="email" id="email" name="email" placeholder="Email" oninput="checkEmail()" required>
+                    <div id="emailStatus"></div>
+                    <input type="text" name="username" id="username" placeholder="Username" onkeyup="checkUsername()" required>
                     <span id="usernameStatus"></span>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password (Min 8 chars, 1 uppercase, 1 special char)" required>
                     <div class="become_donor">
                         <input type="checkbox" id="show-parent-info" onclick="toggleParentInfo()">
                         <label for="show-parent-info">Become Donor</label>
                     </div>
                     <div id="parent-info" class="hidden">
                         <div class="inline-fields">
-                            <input type="number" name="body_weight" id="body_weight" placeholder="Body Weight(kg)">
-                            <input type="number" name="body_height" id="body_height" placeholder="Body Height(ft)">
+                            <input type="number" name="body_weight" id="body_weight" placeholder="Body Weight(kg)" required>
+                            <input type="number" name="body_height" id="body_height" placeholder="Body Height(ft)" required>
                         </div>
                         <div class="inline-fields">
-                            <input type="number" name="age" id="age" placeholder="Age">
-                            <select name="blood_group" id="blood_group">
+                            <input type="number" name="age" id="age" placeholder="Age" required>
+                            <select name="blood_group" id="blood_group" required>
                                 <option value="">Select Blood Group</option>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
@@ -48,26 +51,26 @@
                         </div>
                         <div>
                             <label>Gender:</label>
-                            <input type="radio" id="male" name="gender" value="male">
+                            <input type="radio" id="male" name="gender" value="male" required>
                             <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female">
+                            <input type="radio" id="female" name="gender" value="female" required>
                             <label for="female">Female</label>
-                            <input type="radio" id="other" name="gender" value="other">
+                            <input type="radio" id="other" name="gender" value="other" required>
                             <label for="other">Other</label>
                         </div>
-                        <input type="text" id="dob" name="dob" placeholder="Date of Birth(YYYY-MM-DD)"><br>
+                        <input type="text" id="dob" name="dob" placeholder="Date of Birth(YYYY-MM-DD)" required>
                         <textarea name="address" id="ADDRESS" rows="5" style="resize:none;"
-                            placeholder="Full Address"></textarea><br>
-                        <input type="number" name="pincode" id="PINCODE" placeholder="Pincode"><br>
-                        <input type="number" name="contact" id="CONTACT" placeholder="Contact No."><br><br>
+                            placeholder="Full Address" required></textarea>
+                        <input type="number" name="pincode" id="PINCODE" placeholder="Pincode" required>
+                        <input type="number" name="contact" id="CONTACT" placeholder="Contact No." required>
                         <label>Upload your Health Reports (PDF only):</label><br>
-                        <input type="file" name="file_upload" id="file_upload" accept=".pdf"><br>
+                        <input type="file" name="file_upload" id="file_upload" accept=".pdf" required>
                     </div>
-                    <input type="hidden" name="usertype" id="usertype" value="recipient" accept=".pdf">
+                    <input type="hidden" name="usertype" id="usertype" value="recipient">
                     <button type="submit">REGISTER</button>
                 </form>
                 <div class="not-member">
-                    <a href="login.php">A Member?</a>
+                    <p>Alredy have an account? <a href="login.php">Login now</a></p>
                 </div>
             </div>
         </div>
@@ -76,7 +79,7 @@
     <script src="//code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="js\script.js?v=<?php echo time(); ?>"></script>
     <script src="js/bootstrap.min.js"></script>
- <!-- <script>
+    <!-- <script>
 function toggleParentInfo() {
      var parentInfo = document.getElementById("parent-info");
      var userType = document.getElementById("usertype");

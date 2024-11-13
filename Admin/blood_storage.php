@@ -6,9 +6,8 @@ include('../connection.php'); ?>
     <div class="container-fluid">
         <h2>Blood Storage</h2>
         <p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBloodEntry">
-                Add Blood Entry
-            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBloodEntry">Add Blood Entry</button>
+            <a href="blood_storage_history.php" class="btn btn-primary">History</a>
         </p>
         <table class="table table-bordered">
             <thead>
@@ -35,11 +34,10 @@ include('../connection.php'); ?>
                 ?>
             </tbody>
         </table>
-
-
     </div>
 </div>
 
+<!-- Add Blood Entry Modal -->
 <div class="modal fade" id="addBloodEntry" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -74,9 +72,7 @@ include('../connection.php'); ?>
     </div>
 </div>
 
-
 <?php $conn->close(); ?>
 <?php include('admin_footer.php'); ?>
 </body>
-
 </html>

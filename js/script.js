@@ -8,8 +8,21 @@ function validateForm() {
     }
 
     var password = document.getElementById('password').value;
+    var uppercasePattern = /[A-Z]/;
+    var specialCharPattern = /[!@#$%^&*]/;
+
     if (password.length < 8) {
         alert("Password must be at least 8 characters long.");
+        return false;
+    }
+
+    if (!uppercasePattern.test(password)) {
+        alert("Password must contain at least one uppercase letter.");
+        return false;
+    }
+
+    if (!specialCharPattern.test(password)) {
+        alert("Password must contain at least one special character.");
         return false;
     }
 
@@ -40,6 +53,69 @@ function validateForm() {
 
     return true;
 }
+
+// validetion for Full name 
+function blockNumbers(event) {
+    var charCode = event.which || event.keyCode;
+    // Allow only letters (A-Z, a-z) and space (char code 32)
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode === 32) {
+        return true;
+    } else {
+        return false; // Block number and other characters
+    }
+}
+
+// capitalization for first letter start
+function capitalizeFirstLetter(id) {
+    var inputField = document.getElementById(id);
+    var value = inputField.value.trim();
+    if (value) {
+        // Capitalize the first letter and make the rest lowercase
+        inputField.value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    }
+}
+
+// Call this function for each input field where you want this behavior
+function applyCapitalization() {
+    capitalizeFirstLetter('fullname');
+    capitalizeFirstLetter('hname');
+    capitalizeFirstLetter('dname');
+    capitalizeFirstLetter('name');
+}
+// capitalization for first letter end
+
+function limitInputLength(id, maxLength) {
+    var inputField = document.getElementById(id);
+    var value = inputField.value;
+
+     // Ensure only the specified max number of digits can be entered
+     if (inputField.value.length > maxLength) {
+        inputField.value = inputField.value.slice(0, maxLength);  // Trim to the specified maxLength
+    }
+
+    // Ensure the value is a positive number if a minimum is specified
+    if (parseInt(inputField.value) < minValue) {
+        inputField.value = "";  // Clear the input if it's not valid
+    }
+}
+
+function limitInputLengthAndPositive(id, maxLength) {
+    var inputField = document.getElementById(id);
+    var value = inputField.value;
+
+    // Ensure only the specified max number of digits can be entered
+    if (value.length > maxLength) {
+        inputField.value = value.slice(0, maxLength);  // Trim to the specified maxLength
+    }
+
+    // Ensure the value is positive and at least 1
+    if (value < 1) {
+        inputField.value = "";  // Clear the input if it's not valid
+    }
+}
+
+
+
 //  Change usertype autometicaly
 function toggleParentInfo() {
     var parentInfo = document.getElementById("parent-info");
@@ -55,6 +131,32 @@ function toggleParentInfo() {
 }
 
 //  Check username availability check
+
+function checkEmail() {
+    const email = document.getElementById('email').value;
+    const emailStatus = document.getElementById('emailStatus');
+    
+    // Simple email format validation (optional)
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        emailStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Please enter a valid email address.</span>';
+        return;
+    }
+
+    fetch(`check_email.php?email=${email}`)
+        .then(response => response.text())
+        .then(data => {
+            if (data === 'available') {
+                emailStatus.innerHTML = '<span style="color: green; display: block; margin-bottom: 20px; text-align: center;">Email is available!</span>';
+            } else if (data === 'taken') {
+                emailStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Email is already in use!</span>';
+            } else {
+                emailStatus.innerHTML = '<span style="color: orange; display: block; margin-bottom: 20px; text-align: center;">Error checking email.</span>';
+            }
+        });
+}
+
+
 function checkUsername() {
     const username = document.getElementById('username').value;
     const usernameStatus = document.getElementById('usernameStatus');
@@ -66,7 +168,7 @@ function checkUsername() {
                 if (data === 'available') {
                     usernameStatus.innerHTML = '<span style="color: green;  display: block; margin-bottom: 20px; text-align: center;">Username is available!</span>';
                 } else if (data === 'taken') {
-                    usernameStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Username is already taken!</span>';
+                    usernameStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Username is already in use!</span>';
                 } else {
                     usernameStatus.innerHTML = '<span style="color: orange;  display: block; margin-bottom: 20px; text-align: center;">Error checking username.</span>';
                 }
@@ -100,13 +202,17 @@ $(document).ready(function () {
         changeYear: true,
         dateFormat: 'yy-mm-dd'
     });
-
     // Initialize Datepicker for #wr
     $("#wr").datepicker({
+        changeMonth: true,
+        changeYear: true,
         dateFormat: "yy-mm-dd", // Format of the date
         minDate: 0 // Restrict to select dates from today onwards
     });
 });
+
+
+
 
 
 

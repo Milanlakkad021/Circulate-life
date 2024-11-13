@@ -138,18 +138,18 @@ body {
 
 .main {
     transition: all 0.3s ease-in-out;
-    width: calc(100% - 260px);
+    width: calc(100% - 260px); /* Full width when sidebar is visible */
     background-color: #F3F5F8;
     padding: 20px;
     overflow-y: auto;
-    margin-left: 250px;
+    margin-left: 250px; /* Margin for visible sidebar */
     transition: margin-left 0.3s ease;
 }
 
 .main-collapsed {
-    margin-left: 0;
+    margin-left: 0; /* No margin when sidebar is hidden */
+    width: 100%; /* Full width when sidebar is hidden */
 }
-
 
 
 #wrapper #sidebar-nav,

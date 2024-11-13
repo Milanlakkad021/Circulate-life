@@ -50,7 +50,7 @@
             <div class="container">
                 <div class="row nav-row">
                     <div class="col-md-3 logo">
-                        <img src="assets\images\Circulate Life.png" alt="">
+                    <img src="assets/images/Circulate Life.png" alt="" style="height: 60px;">
                     </div>
                     <div class="col-md-9 nav-col">
                         <nav class="navbar navbar-expand-lg navbar-light">
@@ -70,9 +70,9 @@
                                     <!-- <li class="nav-item">
                                         <a class="nav-link" href="#gallery">Gallery</a>
                                     </li> -->
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="nav-link" href="#process">Learn About Donation</a>
-                                    </li>
+                                    </li> -->
                                     <!-- <li class="nav-item">
                                             <a class="nav-link" href="#blog">Blog</a>
                                         </li> -->
@@ -95,7 +95,6 @@
     <!-- ################# Slider Starts Here#######################--->
 
     <div class="slider-detail">
-
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -173,12 +172,11 @@
                     <h2>About Blood Doners</h2>
                     <p>In Circulate Life (Blood bank) System recipient can get blood easily and donor can donate blood
                         easily.<br><br>When donor donate blood after that we keep their blood at safe place.<br><br>When
-                        recipients
-                        want blood before handover blood to recipient we check that correct blood type and amount is
-                        sending to donor.<br><br>We always care for our donors and recipient by keeping cleanliness and
-                        maintaining hygiene so that no one fall ill.<br><br>Circulate Life(Blood Bank) system is
-                        established in
-                        2024 so that donor and</p>
+                        recipients want blood before handover blood to recipient we check that correct blood type and
+                        amount is sending to donor.<br><br>We always care for our donors and recipient by keeping
+                        cleanliness and maintaining hygiene so that no one fall ill.<br><br>Circulate Life(Blood Bank)
+                        system is established in 2024 so that donor and</p>
+
                 </div>
                 <div class="col-md-6 image">
                     <img src="assets\images\slider\Picture9.jpg" alt="">
@@ -240,93 +238,121 @@
 
     <!-- ################# Donation Process Start Here #######################--->
 
-    <section id="process" class="donation-care">
-        <div class="container">
-            <div class="row session-title">
-                <h2>Learn About Donation</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 vd">
-                    <div class="bkjiu">
-                        <img src="assets/images/gallery/g1.jpg" alt="">
-                        <h4><b>1 - </b>Donor Registration</h4>
-                        <p>Join our network of donors and help those in need of blood for life-saving procedures.</p>
-                        <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 vd">
-                    <div class="bkjiu">
-                        <img src="assets/images/gallery/g2.jpg" alt="">
-                        <h4><b>2 - </b>Recipient Support</h4>
-                        <p>We assist recipients in finding compatible blood donors to ensure timely and safe transfusions.</p>
-                        <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 vd">
-                    <div class="bkjiu">
-                        <img src="assets/images/gallery/g3.jpg" alt="">
-                        <h4><b>3 - </b>Emergency Assistance</h4>
-                        <p>Our blood bank provides essential services to connect donors with recipients in urgent need.</p>
-                        <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-md-6 image">
-                    <img src="assets\images\slider\donationFact.webp" alt="">
-                </div>
-                <div class="col-md-6 image">
-                    <img src="assets\images\slider\Picture2.png" alt="">
-                </div>
-            </div>
+    <section id="type" class="container-fluid about-us">
+    <div class="container">
+        <div class="row session-title">
+            <h2 class="text-center">Types of Donation</h2>
+            <p class="text-center">The average human body contains about five liters of blood, which is made of several cellular and non-cellular components such as <strong>Red blood cell</strong>, <strong>Platelet</strong>, and <strong>Plasma</strong>.</p>
+            <p class="text-center">Each type of component has its unique properties and can be used for different indications. The donated blood is separated into these components by the blood centre, and one donated unit can save up to four lives depending on the number of components separated from your blood.</p>
         </div>
+        
+        <!-- Nav Tabs -->
+        <ul class="nav nav-tabs" id="donationTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="redblood-tab" data-toggle="tab" href="#redblood" role="tab" aria-controls="redblood" aria-selected="true">Packed Red Blood Cells</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="plasma-tab" data-toggle="tab" href="#plasma" role="tab" aria-controls="plasma" aria-selected="false">Plasma</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="platelet-tab" data-toggle="tab" href="#platelet" role="tab" aria-controls="platelet" aria-selected="false">Platelet</a>
+            </li>
+        </ul>
 
-
-        </div>
-    </section>
-    <section id="type" class="contianer-fluid about-us">
-        <div class="container">
-            <div class="row session-title">
-                <h2>Types of donation:Red blood cell</h2>
-                <p>The average human body contains about five liters of blood, which is made of several cellular and
-                    non-cellular components such as Red blood cell, Platelet, and Plasma.</p>
-
-                <p>Each type of component has its unique properties and can be used for different indications. The
-                    donated blood is separated into these components by the blood centre and one donated unit can save
-                    upto four lives depending on the number of components separated from your blood.</p>
-                <div class="row">
+        <!-- Tab Content -->
+        <div class="tab-content" id="donationTabContent">
+            <!-- Packed Red Blood Cells Tab -->
+            <div class="tab-pane fade show active" id="redblood" role="tabpanel" aria-labelledby="redblood-tab">
+                <div class="row mt-4">
                     <div class="col-md-6 text">
                         <h2>What is it?</h2>
-                        <p>Blood Collected straight from the donor into a blood bag and mixed with an
-                            anticoagulant is called as whole blood. This collected whole blood is then
-                            centrifuged and red cell, platelets and plasma are separated. The separated Red
-                            cells are mixed with a preservative to be called as packed red blood cells.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>User For?</h2>
-                        <p>Correction of severe anemia in a number of conditions and blood loss in case of child birth,
-                            surgery or trauma settings.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How long does it take to donate?</h2>
-                        <p>15-30 minutes to donate.including the pre-donation check-up.</p>
+                        <p>Blood Collected straight from the donor into a blood bag and mixed with an anticoagulant is called as whole blood. This collected whole blood is then centrifuged, and red cells, platelets, and plasma are separated. The separated Red cells are mixed with a preservative to be called packed red blood cells.</p>
                     </div>
                     <div class="col-md-6 text">
                         <h2>Who can donate?</h2>
-                        <p>You need to be 18-65 years old, weight 45kg or more and be fit and healthy.</p>
+                        <p>You need to be 18-65 years old, weigh 45 kg or more, and be fit and healthy.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Used For?</h2>
+                        <p>Correction of severe anemia in a number of conditions and blood loss in case of childbirth, surgery, or trauma settings.</p>
                     </div>
                     <div class="col-md-6 text">
                         <h2>Lasts For?</h2>
-                        <p>Red cells can be stored for 42 days at 2-6 degree celsius.</p>
+                        <p>Red cells can be stored for 42 days at 2-6 degrees Celsius.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>How long does it take to donate?</h2>
+                        <p>15-30 minutes to donate, including the pre-donation check-up.</p>
                     </div>
                     <div class="col-md-6 text">
                         <h2>How often can I donate?</h2>
-                        <p>Male donors can donate again after 90 days and female donors can donate again after 120 days.
-                        </p>
+                        <p>Male donors can donate again after 90 days, and female donors can donate again after 120 days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plasma Tab -->
+            <div class="tab-pane fade" id="plasma" role="tabpanel" aria-labelledby="plasma-tab">
+                <div class="row mt-4">
+                    <div class="col-md-6 text">
+                        <h2>What is it?</h2>
+                        <p>Plasma is a straw-colored liquid that carries red and white blood cells and platelets. It contains nutrients used to create 18 types of medical products for various treatments. Plasma is obtained from whole blood after separating red cells and platelets or through apheresis, where other components are returned to the donor. The first method is more common in our country.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Who can donate?</h2>
+                        <p>People who are healthy, aged 18-65 years old, and meet the weight requirement can donate plasma.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Used For?</h2>
+                        <p>Plasma donations are often used to treat patients with liver conditions, trauma, and severe infections.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Lasts For?</h2>
+                        <p>Plasma can be stored for up to a year when frozen at -18°C.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>How long does it take to donate?</h2>
+                        <p>It typically takes 30-45 minutes for a plasma donation, depending on the method used.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>How often can I donate?</h2>
+                        <p>Plasma can be donated every 28 days, up to 13 times per year.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platelet Tab -->
+            <div class="tab-pane fade" id="platelet" role="tabpanel" aria-labelledby="platelet-tab">
+                <div class="row mt-4">
+                    <div class="col-md-6 text">
+                        <h2>What is it?</h2>
+                        <p>These are cellular elements in blood which wedge together to help to clot and reduce bleeding. Always in high demand, Vital for people with low platelet count, like hematology and cancer patients.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Who can donate?</h2>
+                        <p>Platelets can be donated from whole blood, with similar criteria as whole blood donation. Alternatively, apheresis collects only platelets while returning other components. Donors must meet whole blood criteria, have negative infectious markers, a platelet count above 150,000/µL, and weigh over 50 kg.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Used For?</h2>
+                        <p>Conditions with very low platelet count such as Cancer, blood diseases, trauma, dengue etc.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>Lasts For?</h2>
+                        <p>Platelets can be stored for just 5-7 days at 20-24 degree celsius.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>How long does it take to donate?</h2>
+                        <p>Donating platelets typically takes 60-90 minutes, as the blood is drawn and separated using a machine.</p>
+                    </div>
+                    <div class="col-md-6 text">
+                        <h2>How often can I donate?</h2>
+                        <p>Every 2 weeks but should not exceed more than 24 times in a year.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!--################### Our Blog Starts Here #######################
         <div id="blog" class="blog-container contaienr-fluid">
@@ -446,7 +472,7 @@
                         <ul>
                             <li><a class="nav-link" style="color: aliceblue;" href="#">Home</a></li>
                             <li><a class="nav-link" style="color: aliceblue;" href="#about">About Us</a></li>
-                            <li><a class="nav-link" style="color: aliceblue;" href="#process">Process</a></li>
+                            <li><a class="nav-link" style="color: aliceblue;" href="#type">Types of donation</a></li>
                             <li><a class="nav-link" style="color: aliceblue;" href="#contact">Contact US</a></li>
                         </ul>
                     </div>

@@ -1,37 +1,53 @@
 <?php
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/SMTP.php';
 include('../connection.php');
-session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $request_id = $_POST['request_id'];
+    $email = $_POST['email'];
     $action = $_POST['action'];
 
-    // Validate input
-    if (!empty($request_id) && ($action == 'accept' || $action == 'reject')) {
-        // Set status based on the action
-        $status = $action == 'accept' ? 'Accept' : 'Rejected';
+    // Update the status in the database based on the action
+    $status = ($action === 'accept') ? 'accept' : 'reject';
+    $sql = "UPDATE blood_request SET status='$status' WHERE id='$request_id'";
 
-        // Update the status in the database
-        $stmt = $conn->prepare("UPDATE blood_requests SET status = ? WHERE id = ?");
-        $stmt->bind_param("si", $status, $request_id);
+    if ($conn->query($sql) === TRUE) {
+        // Send an email based on the action
+        $mail = new PHPMailer(true);
 
-        if ($stmt->execute()) {
-            $_SESSION['success'] = "Request has been " . ($action == 'accept' ? 'accepted' : 'rejected') . " successfully.";
-        } else {
-            $_SESSION['error'] = "There was an error processing your request. Please try again.";
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'milanlakkad025@gmail.com'; // Your email
+            $mail->Password = 'ykpq xgqk ycdq xmog';   // Your app password if 2FA is enabled
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            //Recipients
+            $mail->setFrom('milanlakkad025@gmail.com', 'Blood Bank');
+            $mail->addAddress($email);
+
+            // Email content
+            $mail->isHTML(true);
+            $subject = ($action === 'accept') ? 'Blood Request Accepted' : 'Blood Request Rejected';
+            $body = ($action === 'accept') ? 'Your blood request has been accepted.<br><br>Address:<br>123, Swastik Society,<br>Adajan Road, Surat,<br>Gujarat - 395009, India.' : 'Your blood request has been rejected.<br><br>Address:<br>123, Swastik Society,<br>Adajan Road, Surat,<br>Gujarat - 395009, India.';
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+
+            $mail->send();
+            echo ($action === 'accept') ? 'Request accepted and email sent.' : 'Request rejected and email sent.';
+        } catch (Exception $e) {
+            echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
         }
-
-        // Close statement
-        $stmt->close();
     } else {
-        $_SESSION['error'] = "Invalid request.";
+        echo 'Error updating request: ' . $conn->error;
     }
 }
-
-// Redirect back to the blood requests page
-header("Location: blood_requests.php"); // or the relevant page
-exit();
-
-// Close connection
 $conn->close();
 ?>

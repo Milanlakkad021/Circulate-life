@@ -38,7 +38,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<img src="../assets\images\img\user.png" class="img-circle" alt="Avatar">
+							<!-- <img src="../assets\images\img\user.png" class="img-circle" alt="Avatar"> -->
 							<span><?php echo $_SESSION['username']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -46,7 +46,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-home"></i>Dashboard</a>
 							<a class="dropdown-item" href="donor_personal_details.php"><i class="lnr lnr-user"></i> My
 								Profile</a>
-							<a class="dropdown-item" href="../logout.php" data-toggle="modal" data-target="#logout"><i
+							<a class="dropdown-item" data-toggle="modal" data-target="#logout"><i
 									class="lnr lnr-exit"></i> Logout</a>
 						</div>
 					</li>
@@ -60,9 +60,9 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 				<nav>
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="donor_personal_details.php"><i
-									class="lnr lnr-home"></i>Personal Details</a></li>
+									class="lnr lnr-user"></i>Personal Details</a></li>
 						<li class="nav-item"><a class="nav-link" href="donor_change_password.php"><i
-									class="lnr lnr-drop"></i>Change Password</a></li>
+									class="lnr lnr-sync"></i>Change Password</a></li>
 					</ul>
 				</nav>
 			</div>

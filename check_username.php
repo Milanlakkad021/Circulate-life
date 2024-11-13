@@ -1,9 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'blood_bank');
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include('connection.php');
 
 if (isset($_GET['username'])) {
     $username = $conn->real_escape_string($_GET['username']);

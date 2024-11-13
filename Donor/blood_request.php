@@ -1,5 +1,11 @@
-<?php include('donor_header.php');
-include('../connection.php') ?>
+<?php include('donor_header.php'); ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<link rel="stylesheet" href="/resources/demos/style.css">
 <div class="main">
   <!-- MAIN CONTENT -->
   <div class="container-fluid">
@@ -50,8 +56,8 @@ include('../connection.php') ?>
             <div class="modal-dialog modal-sm">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Are you sure?</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                   <p>Want to delete?</p>
@@ -75,8 +81,7 @@ include('../connection.php') ?>
 
 <!-- add request modal -->
 <div class="modal fade" id="needblood" role="dialog">
-  <div class="modal-dialog">
-
+  <div class="modal-dialog"> <!-- Added modal-lg for a larger modal size -->
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -85,11 +90,12 @@ include('../connection.php') ?>
       </div>
       <div class="modal-body">
         <form action="blood_request_data.php" method="post" enctype="multipart/form-data"
-          onsubmit="return validateForm();">
-          <input type="text" name="name" id="name" placeholder="Patient Name" required>
+          onsubmit="return validateForm()">
+          <input type="text" name="name" id="name" placeholder="Patient Name" onkeypress="return blockNumbers(event)"
+            onblur="capitalizeFirstLetter('name')" required>
           <div class="inline-fields">
-            <input type="number" name="age" id="age" placeholder="Age">
-            <select name="blood_group" id="blood_group">
+            <input type="number" name="age" id="age" placeholder="Age" required>
+            <select name="blood_group" id="blood_group" required>
               <option value="">Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -103,26 +109,32 @@ include('../connection.php') ?>
           </div>
           <input type="text" name="reson" id="reson" placeholder="Reason For Blood" required>
           <input type="text" id="wr" name="wr" placeholder="When Required" required>
-          <input type="number" name="unit" id="unit" placeholder="Unit of Blood" required>
-          <input type="text" name="hname" id="hname" placeholder="Hospital Name" required>
-          <input type="text" name="dname" id="dname" placeholder="Doctor Name" required>
+          <input type="number" name="unit" id="unit" placeholder="Unit of Blood"
+            oninput="limitInputLengthAndPositive('unit', 4)" required>
+          <input type="text" name="hname" id="hname" placeholder="Hospital Name" onkeypress="return blockNumbers(event)"
+            onblur="capitalizeFirstLetter('hname')" required>
+          <input type="text" name="dname" id="dname" placeholder="Doctor Name" onkeypress="return blockNumbers(event)"
+            onblur="capitalizeFirstLetter('dname')" required>
           <div>
             <label>Gender:</label>
-            <input type="radio" id="male" name="gender" value="male">
+            <input type="radio" id="male" name="gender" value="male" required>
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
+            <input type="radio" id="female" name="gender" value="female" required>
             <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other">
+            <input type="radio" id="other" name="gender" value="other" required>
             <label for="other">Other</label>
           </div>
-          <textarea name="address" id="ADDRESS" rows="5" style="resize:none;" placeholder="Full Address"></textarea><br>
+          <textarea name="address" id="ADDRESS" rows="5" style="resize:none;" placeholder="Full Address"
+            required></textarea>
           <div class="inline-fields">
-            <input type="number" name="pincode" id="PINCODE" placeholder="Pincode">
-            <input type="number" name="contact" id="CONTACT" placeholder="Contact No.">
+            <input type="number" name="pincode" id="PINCODE" placeholder="Pincode" maxlength="6"
+              oninput="limitInputLength('PINCODE', 6 ,6)" required>
+            <input type="number" name="contact" id="CONTACT" placeholder="Contact No." maxlength="6"
+              oninput="limitInputLength('CONTACT', 10 ,10)" required>
           </div>
-          <input type="email" name="email" id="email" placeholder="Email" required>
-          <label>Upload your Health Reports (PDF only):</label><br>
-          <input type="file" name="file_upload" id="file_upload" accept=".pdf"><br>
+          <input type="email" name="email" id="email" placeholder="Email" oninput="checkEmail()" required>
+          <label>Upload your Health Reports (PDF only):</label>
+          <input type="file" name="file_upload" id="file_upload" accept=".pdf" required>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -133,8 +145,6 @@ include('../connection.php') ?>
 
   </div>
 </div>
-
-
 <?php include('donor_footer.php'); ?>
 </body>
 

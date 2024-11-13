@@ -12,6 +12,58 @@ body {
     padding: 0;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+input[type="radio"]{
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="checkbox"]{
+    margin-bottom: 20px;
+}
+
+textarea[name="address"],
+input[type="number"],
+select[name="blood_group"] {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: #aaa; /* Light gray color */
+    opacity: 1; /* Ensures the color is not faded */
+}
+
+.inline-fields {
+    display: flex;
+    gap: 10px;
+}
+.inline-fields input select {
+    flex: 2;
+}
+
+
 /*********************************************************
 ******************* Sidebar Styles ***********************
 *********************************************************/
@@ -134,23 +186,22 @@ body {
 #wrapper {
     display: flex;
     flex-direction: row;
+    background-color: #d3d4d6;
 }
 
 .main {
     transition: all 0.3s ease-in-out;
-    width: calc(100% - 260px);
+    width: calc(100% - 260px); /* Full width when sidebar is visible */
     background-color: #d3d4d6;
     padding: 20px;
     overflow-y: auto;
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    margin-left: 250px; /* Margin for visible sidebar */
 }
 
 .main-collapsed {
-    margin-left: 0;
+    margin-left: 0; /* No margin when sidebar is hidden */
+    width: 100%; /* Full width when sidebar is hidden */
 }
-
-
 
 #wrapper #sidebar-nav,
 #wrapper .main {

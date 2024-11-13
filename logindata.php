@@ -48,6 +48,13 @@ if ($result->num_rows == 1) {
             setcookie('username', $fetch['username'], time() + (86400 * 30), "/"); // 86400 = 1 day
             setcookie('user_id', $fetch['id'], time() + (86400 * 30), "/");
             setcookie('user_type', $user_type, time() + (86400 * 30), "/");
+        } else {
+            // If "Remember me" is not checked, clear cookies
+            if (isset($_COOKIE['username'])) {
+                setcookie('username', '', time() - 3600, "/");
+                setcookie('user_id', '', time() - 3600, "/");
+                setcookie('user_type', '', time() - 3600, "/");
+            }
         }
 
         // Redirect based on user type
@@ -79,5 +86,4 @@ if ($result->num_rows == 1) {
     header('Location: login.php');
     exit();
 }
-
 ?>
