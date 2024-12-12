@@ -13,7 +13,7 @@
         <div class="login-box">
             <div class="login-left">
                 <div class="logo">
-                    <img src="assets\images\img\Logo1.jpg" alt="Criculate life Logo">
+                <img src="assets/images/Circulate Life.png?v=<?php echo time(); ?>" alt="Criculate life Logo">
                 </div>
                 <h2 class="h2">Verify OTP</h2>
                 <form action="reset_password.php" method="post">

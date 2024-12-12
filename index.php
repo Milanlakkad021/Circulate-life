@@ -23,7 +23,7 @@
                         <ul class="ulleft">
                             <li>
                                 <i class="far fa-envelope"></i>
-                                circulatelife@gmail.com
+                                circulatelife021@gmail.com
                                 <span>|</span>
                             </li>
                             <li>
@@ -454,7 +454,7 @@
                             <i class="far fa-envelope"></i>
                         </div>
                         <div class="detail">
-                            <p>circulatelife@gmail.com</p>
+                            <p>circulatelife021@gmail.com</p>
                         </div>
                     </div>
                     <div class="address-row">

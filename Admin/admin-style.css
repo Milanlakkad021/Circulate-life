@@ -28,18 +28,15 @@ body {
     margin-top: 20px;
 }
 
-
 .sidebar-hidden {
     transform: translateX(-100%);
 }
-
 
 .sidebar .nav>li>a {
     padding: 18px 30px;
     color: #AEB7C2;
     border-left: 5px solid transparent;
 }
-
 
 .sidebar .nav>li>a:hover,
 .sidebar .nav>li>a:focus,
@@ -563,9 +560,8 @@ html.fullscreen-bg #wrapper {
     background-color: #fff;
 }
 
-
 /*********************************************************
-******************* dashboard Styles ******************
+******************* dashboard Styles *********************
 *********************************************************/
 
 .text-muted {
@@ -600,9 +596,11 @@ th {
     text-decoration: none;
     border-radius: 4px;
 }
-/********************
- * PANELS
- ********************/
+
+/*********************************************************
+******************* PANELS *******************************
+*********************************************************/
+
 .panel {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -710,9 +708,10 @@ th {
     background-color: #fafafa;
 }
 
-/********************
- * Edit Blood Storege
- ********************/
+/*********************************************************
+******************* Edit Blood Storege *******************
+*********************************************************/
+
 input[type="text"],
 input[type="number"],
 select[name="blood_group"] {
@@ -721,6 +720,5 @@ select[name="blood_group"] {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
-    
+    font-size: 14px;   
 }

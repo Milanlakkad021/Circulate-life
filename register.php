@@ -14,7 +14,7 @@
         <div class="login-box">
             <div class="login-left">
                 <div class="logo">
-                    <img src="assets\images\img\Logo1.jpg" alt="Circulate Life Logo">
+                <img src="assets/images/Circulate Life.png?v=<?php echo time(); ?>" alt="Criculate life Logo">
                 </div>
                 <h2 class="h2">Register to your account</h2>
                 <form action="member_register.php" method="post" enctype="multipart/form-data"

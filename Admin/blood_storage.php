@@ -7,7 +7,7 @@ include('../connection.php'); ?>
         <h2>Blood Storage</h2>
         <p>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBloodEntry">Add Blood Entry</button>
-            <a href="blood_storage_history.php" class="btn btn-primary">History</a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removeBloodEntry">Remove Blood Entry</button>
         </p>
         <table class="table table-bordered">
             <thead>
@@ -65,6 +65,41 @@ include('../connection.php'); ?>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="addBloodEntry">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- remove Blood Entry Modal -->
+<div class="modal fade" id="removeBloodEntry" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Remove Blood Entry</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="remove_blood_entry.php" method="post" enctype="multipart/form-data">
+                    <input type="text" name="donor_username" id="donor_username" placeholder="Username" required>
+                    <div class="inline-fields">
+                        <select name="blood_group" id="blood_group" required>
+                            <option value="">Select Blood Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                        <input type="number" name="unit" id="unit" placeholder="Unit" min="1" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="addBloodEntry">Remove</button>
                     </div>
                 </form>
             </div>

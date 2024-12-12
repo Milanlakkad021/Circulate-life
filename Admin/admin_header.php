@@ -67,6 +67,8 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-user"></i>Donor</a></li>
 						<li class="nav-item"><a class="nav-link" href="blood_storage.php"><i
 									class="lnr lnr-store"></i>Blood Storage</a></li>
+						<li class="nav-item"><a class="nav-link" href="blood_storage_history.php"><i
+									class="lnr lnr-book"></i>History</a></li>
 						<li class="nav-item"><a class="nav-link" href="blood_requests.php"><i
 									class="lnr lnr-drop"></i>Blood Request</a></li>
 					</ul>
