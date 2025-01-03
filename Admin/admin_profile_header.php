@@ -15,7 +15,8 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin Dashboard</title>
 	<link rel="stylesheet" href="..//css\bootstrap.min.css?v=<?php echo time(); ?>">
-	<link rel="stylesheet" href="..//css/linearicons/style.css">
+	<!-- <link rel="stylesheet" href="..//css/linearicons/style.css"> -->
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 	<link rel="stylesheet" href="admin-style.css?v=<?php echo time(); ?>">
 </head>
 

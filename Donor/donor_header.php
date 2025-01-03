@@ -16,7 +16,8 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 	<title>Donor Dashboard</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="..//css\bootstrap.min.css?v=<?php echo time(); ?>">
-	<link rel="stylesheet" href="..//css/linearicons/style.css">
+	<!-- <link rel="stylesheet" href="..//css/linearicons/style.css"> -->
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 	<link rel="stylesheet" href="donor_style.css?v=<?php echo time(); ?>">
 </head>
 

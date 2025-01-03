@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="assets/css/fontawsom-all.min.css">
     <link rel="stylesheet" href="assets/plugins/grid-gallery/css/grid-gallery.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=1.0" />
+    <link rel="stylesheet" href="css/linearicons/style.css">
+    
+
 </head>
 
 <body>
@@ -22,22 +25,18 @@
                     <div class="col-lg-6 d-none d-lg-block">
                         <ul class="ulleft">
                             <li>
-                                <i class="far fa-envelope"></i>
+                                <i class="fas fa-envelope"></i>
                                 circulatelife021@gmail.com
                                 <span>|</span>
                             </li>
                             <li>
-                                <i class="far fa-clock"></i>
+                                <i class="fas fa-clock"></i>
                                 Service Time : 24*7
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <ul class="ulright">
-                            <!-- <li>
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    Upload Video
-                                    <span>|</span></li> -->
                             <li>
                                 <i class="fas fa-user"><a style="color: aliceblue;" href="login.php">Login</a></i>
                             </li>
@@ -50,7 +49,7 @@
             <div class="container">
                 <div class="row nav-row">
                     <div class="col-md-3 logo">
-                    <img src="assets/images/Circulate Life.png" alt="" style="height: 60px;">
+                        <img src="assets/images/Circulate Life.png" alt="" style="height: 60px;">
                     </div>
                     <div class="col-md-9 nav-col">
                         <nav class="navbar navbar-expand-lg navbar-light">
@@ -67,15 +66,6 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#about">About Us</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link" href="#gallery">Gallery</a>
-                                    </li> -->
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link" href="#process">Learn About Donation</a>
-                                    </li> -->
-                                    <!-- <li class="nav-item">
-                                            <a class="nav-link" href="#blog">Blog</a>
-                                        </li> -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="#type">Types of donation</a>
                                     </li>
@@ -109,11 +99,6 @@
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class=" bounceInDown"></h5>
                         <p class=" bounceInLeft"></p>
-
-                        <!-- <div class=" vbh">
-                            <div class="btn btn-success  bounceInUp"> Book Appointment </div>
-                            <div class="btn btn-success  bounceInUp"> Contact US </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -121,14 +106,6 @@
                     <img class="d-block w-100" src="assets/images/slider/slide-02.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class=" bounceInDown">Donate Blood & Save a Life</h5>
-                        <!-- <p class=" bounceInLeft">The customer is very important, the customer will be followed by the
-                            customer. No justice nor, <br> Trucks may be an important element or, vehicles need eros. We
-                            live in fear of the bow, real estate but with arrows, no one can. It's here.</p> -->
-
-                        <!-- <div class=" vbh">
-                            <div class="btn btn-success  bounceInUp"> Book Appointment </div>
-                            <div class="btn btn-success  bounceInUp"> Contact US </div>
-                        </div> -->
                     </div>
                 </div>
 
@@ -136,14 +113,6 @@
                     <img class="d-block w-100" src="assets/images/slider/slide-03.jpg" alt="Third slide">
                     <div class="carousel-caption vdg-cur d-none d-md-block">
                         <h5 class=" bounceInDown">Donate Blood & Save a Life</h5>
-                        <!-- <p class=" bounceInLeft">The customer is very important, the customer will be followed by the
-                            customer. No justice nor, <br> Trucks may be an important element or, vehicles need eros. We
-                            live in fear of the bow, real estate but with arrows, no one can. It's here.</p> -->
-
-                        <!-- <div class=" vbh">
-                            <div class="btn btn-danger  bounceInUp"> Donate Now </div>
-                            <div class="btn btn-danger  bounceInUp"> Contact US </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -185,254 +154,149 @@
         </div>
     </section>
 
-
-
-    <!-- ################# Gallery Start Here #######################
-     
-    <div id="gallery" class="gallery container-fluid">
-        <div class="container">
-            <div class="row session-title">
-                <h2>Checkout Our Gallery</h2>
-            </div>
-            <div class="gallery-row row">
-                    <div id="gg-screen"></div>
-                    <div class="gg-box">
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g1.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g2.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g3.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g4.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g5.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g6.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g7.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g8.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g9.jpg">
-                            </div>
-                            <div class="gg-element">
-                                <img src="assets/images/gallery/g10.jpg">
-                            </div>
-                            
-                            
-                          </div>
-            </div>
-        </div>
-    </div>
-    
-    --->
-
     <!-- ################# Donation Process Start Here #######################--->
 
     <section id="type" class="container-fluid about-us">
-    <div class="container">
-        <div class="row session-title">
-            <h2 class="text-center">Types of Donation</h2>
-            <p class="text-center">The average human body contains about five liters of blood, which is made of several cellular and non-cellular components such as <strong>Red blood cell</strong>, <strong>Platelet</strong>, and <strong>Plasma</strong>.</p>
-            <p class="text-center">Each type of component has its unique properties and can be used for different indications. The donated blood is separated into these components by the blood centre, and one donated unit can save up to four lives depending on the number of components separated from your blood.</p>
-        </div>
-        
-        <!-- Nav Tabs -->
-        <ul class="nav nav-tabs" id="donationTabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="redblood-tab" data-toggle="tab" href="#redblood" role="tab" aria-controls="redblood" aria-selected="true">Packed Red Blood Cells</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="plasma-tab" data-toggle="tab" href="#plasma" role="tab" aria-controls="plasma" aria-selected="false">Plasma</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="platelet-tab" data-toggle="tab" href="#platelet" role="tab" aria-controls="platelet" aria-selected="false">Platelet</a>
-            </li>
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="tab-content" id="donationTabContent">
-            <!-- Packed Red Blood Cells Tab -->
-            <div class="tab-pane fade show active" id="redblood" role="tabpanel" aria-labelledby="redblood-tab">
-                <div class="row mt-4">
-                    <div class="col-md-6 text">
-                        <h2>What is it?</h2>
-                        <p>Blood Collected straight from the donor into a blood bag and mixed with an anticoagulant is called as whole blood. This collected whole blood is then centrifuged, and red cells, platelets, and plasma are separated. The separated Red cells are mixed with a preservative to be called packed red blood cells.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Who can donate?</h2>
-                        <p>You need to be 18-65 years old, weigh 45 kg or more, and be fit and healthy.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Used For?</h2>
-                        <p>Correction of severe anemia in a number of conditions and blood loss in case of childbirth, surgery, or trauma settings.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Lasts For?</h2>
-                        <p>Red cells can be stored for 42 days at 2-6 degrees Celsius.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How long does it take to donate?</h2>
-                        <p>15-30 minutes to donate, including the pre-donation check-up.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How often can I donate?</h2>
-                        <p>Male donors can donate again after 90 days, and female donors can donate again after 120 days.</p>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="row session-title">
+                <h2 class="text-center">Types of Donation</h2>
+                <p class="text-center">The average human body contains about five liters of blood, which is made of
+                    several cellular and non-cellular components such as <strong>Red blood cell</strong>,
+                    <strong>Platelet</strong>, and <strong>Plasma</strong>.</p>
+                <p class="text-center">Each type of component has its unique properties and can be used for different
+                    indications. The donated blood is separated into these components by the blood centre, and one
+                    donated unit can save up to four lives depending on the number of components separated from your
+                    blood.</p>
             </div>
 
-            <!-- Plasma Tab -->
-            <div class="tab-pane fade" id="plasma" role="tabpanel" aria-labelledby="plasma-tab">
-                <div class="row mt-4">
-                    <div class="col-md-6 text">
-                        <h2>What is it?</h2>
-                        <p>Plasma is a straw-colored liquid that carries red and white blood cells and platelets. It contains nutrients used to create 18 types of medical products for various treatments. Plasma is obtained from whole blood after separating red cells and platelets or through apheresis, where other components are returned to the donor. The first method is more common in our country.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Who can donate?</h2>
-                        <p>People who are healthy, aged 18-65 years old, and meet the weight requirement can donate plasma.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Used For?</h2>
-                        <p>Plasma donations are often used to treat patients with liver conditions, trauma, and severe infections.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Lasts For?</h2>
-                        <p>Plasma can be stored for up to a year when frozen at -18°C.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How long does it take to donate?</h2>
-                        <p>It typically takes 30-45 minutes for a plasma donation, depending on the method used.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How often can I donate?</h2>
-                        <p>Plasma can be donated every 28 days, up to 13 times per year.</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs" id="donationTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="redblood-tab" data-toggle="tab" href="#redblood" role="tab"
+                        aria-controls="redblood" aria-selected="true">Packed Red Blood Cells</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="plasma-tab" data-toggle="tab" href="#plasma" role="tab"
+                        aria-controls="plasma" aria-selected="false">Plasma</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="platelet-tab" data-toggle="tab" href="#platelet" role="tab"
+                        aria-controls="platelet" aria-selected="false">Platelet</a>
+                </li>
+            </ul>
 
-            <!-- Platelet Tab -->
-            <div class="tab-pane fade" id="platelet" role="tabpanel" aria-labelledby="platelet-tab">
-                <div class="row mt-4">
-                    <div class="col-md-6 text">
-                        <h2>What is it?</h2>
-                        <p>These are cellular elements in blood which wedge together to help to clot and reduce bleeding. Always in high demand, Vital for people with low platelet count, like hematology and cancer patients.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Who can donate?</h2>
-                        <p>Platelets can be donated from whole blood, with similar criteria as whole blood donation. Alternatively, apheresis collects only platelets while returning other components. Donors must meet whole blood criteria, have negative infectious markers, a platelet count above 150,000/µL, and weigh over 50 kg.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Used For?</h2>
-                        <p>Conditions with very low platelet count such as Cancer, blood diseases, trauma, dengue etc.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>Lasts For?</h2>
-                        <p>Platelets can be stored for just 5-7 days at 20-24 degree celsius.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How long does it take to donate?</h2>
-                        <p>Donating platelets typically takes 60-90 minutes, as the blood is drawn and separated using a machine.</p>
-                    </div>
-                    <div class="col-md-6 text">
-                        <h2>How often can I donate?</h2>
-                        <p>Every 2 weeks but should not exceed more than 24 times in a year.</p>
+            <!-- Tab Content -->
+            <div class="tab-content" id="donationTabContent">
+                <!-- Packed Red Blood Cells Tab -->
+                <div class="tab-pane fade show active" id="redblood" role="tabpanel" aria-labelledby="redblood-tab">
+                    <div class="row mt-4">
+                        <div class="col-md-6 text">
+                            <h2>What is it?</h2>
+                            <p>Blood Collected straight from the donor into a blood bag and mixed with an anticoagulant
+                                is called as whole blood. This collected whole blood is then centrifuged, and red cells,
+                                platelets, and plasma are separated. The separated Red cells are mixed with a
+                                preservative to be called packed red blood cells.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Who can donate?</h2>
+                            <p>You need to be 18-65 years old, weigh 45 kg or more, and be fit and healthy.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Used For?</h2>
+                            <p>Correction of severe anemia in a number of conditions and blood loss in case of
+                                childbirth, surgery, or trauma settings.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Lasts For?</h2>
+                            <p>Red cells can be stored for 42 days at 2-6 degrees Celsius.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How long does it take to donate?</h2>
+                            <p>15-30 minutes to donate, including the pre-donation check-up.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How often can I donate?</h2>
+                            <p>Male donors can donate again after 90 days, and female donors can donate again after 120
+                                days.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-    <!--################### Our Blog Starts Here #######################
-        <div id="blog" class="blog-container contaienr-fluid">
-            <div class="container">
-                <div class="session-title row">
-                  <h2>Latest Blog</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit velit consectetur adipiscing elit.</p>
+                <!-- Plasma Tab -->
+                <div class="tab-pane fade" id="plasma" role="tabpanel" aria-labelledby="plasma-tab">
+                    <div class="row mt-4">
+                        <div class="col-md-6 text">
+                            <h2>What is it?</h2>
+                            <p>Plasma is a straw-colored liquid that carries red and white blood cells and platelets. It
+                                contains nutrients used to create 18 types of medical products for various treatments.
+                                Plasma is obtained from whole blood after separating red cells and platelets or through
+                                apheresis, where other components are returned to the donor. The first method is more
+                                common in our country.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Who can donate?</h2>
+                            <p>People who are healthy, aged 18-65 years old, and meet the weight requirement can donate
+                                plasma.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Used For?</h2>
+                            <p>Plasma donations are often used to treat patients with liver conditions, trauma, and
+                                severe infections.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>Lasts For?</h2>
+                            <p>Plasma can be stored for up to a year when frozen at -18°C.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How long does it take to donate?</h2>
+                            <p>It typically takes 30-45 minutes for a plasma donation, depending on the method used.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How often can I donate?</h2>
+                            <p>Plasma can be donated every 28 days, up to 13 times per year.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="row news-row">
-                    <div class="col-md-6">
-                        <div class="news-card">
-                            <div class="image">
-                                <img src="assets/images/blog/blog_01.jpg" alt="">
-                            </div>
-                            <div class="detail">
-                                <h3>Latest News about Smarteye</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit consectetur adipiscing elit. </p>
-                                <p class="footp">
-                                    27 Comments <span>/</span>
-                                    Blog Design <span>/</span>
-                                    Read More
-                                </p>
-                            </div>
+
+                <!-- Platelet Tab -->
+                <div class="tab-pane fade" id="platelet" role="tabpanel" aria-labelledby="platelet-tab">
+                    <div class="row mt-4">
+                        <div class="col-md-6 text">
+                            <h2>What is it?</h2>
+                            <p>These are cellular elements in blood which wedge together to help to clot and reduce
+                                bleeding. Always in high demand, Vital for people with low platelet count, like
+                                hematology and cancer patients.</p>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="news-card">
-                            <div class="image">
-                                <img src="assets/images/blog/blog_02.jpg" alt="">
-                            </div>
-                            <div class="detail">
-                                <h3>Apple Launch its New Phone</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit consectetur adipiscing elit. </p>
-                                <p class="footp">
-                                    27 Comments <span>/</span>
-                                    Blog Design <span>/</span>
-                                    Read More
-                                </p>
-                            </div>
+                        <div class="col-md-6 text">
+                            <h2>Who can donate?</h2>
+                            <p>Platelets can be donated from whole blood, with similar criteria as whole blood donation.
+                                Alternatively, apheresis collects only platelets while returning other components.
+                                Donors must meet whole blood criteria, have negative infectious markers, a platelet
+                                count above 150,000/µL, and weigh over 50 kg.</p>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="news-card">
-                            <div class="image">
-                                <img src="assets/images/blog/blog_03.jpg" alt="">
-                            </div>
-                            <div class="detail">
-                                <h3>About Windows 10 Update</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit consectetur adipiscing elit. </p>
-                                <p class="footp">
-                                    27 Comments <span>/</span>
-                                    Blog Design <span>/</span>
-                                    Read More
-                                </p>
-                            </div>
+                        <div class="col-md-6 text">
+                            <h2>Used For?</h2>
+                            <p>Conditions with very low platelet count such as Cancer, blood diseases, trauma, dengue
+                                etc.</p>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="news-card">
-                            <div class="image">
-                                <img src="assets/images/blog/blog_04.jpg" alt="">
-                            </div>
-                            <div class="detail">
-                                <h3>Latest News about Smarteye</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit consectetur adipiscing elit. </p>
-                                <p class="footp">
-                                    27 Comments <span>/</span>
-                                    Blog Design <span>/</span>
-                                    Read More
-                                </p>
-                            </div>
+                        <div class="col-md-6 text">
+                            <h2>Lasts For?</h2>
+                            <p>Platelets can be stored for just 5-7 days at 20-24 degree celsius.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How long does it take to donate?</h2>
+                            <p>Donating platelets typically takes 60-90 minutes, as the blood is drawn and separated
+                                using a machine.</p>
+                        </div>
+                        <div class="col-md-6 text">
+                            <h2>How often can I donate?</h2>
+                            <p>Every 2 weeks but should not exceed more than 24 times in a year.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-     --->
-
-
+    </section>
 
     <!--*************** Footer  Starts Here *************** -->
     <footer id="contact" class="container-fluid">
@@ -443,7 +307,7 @@
                     <h2>Contact Informatins</h2>
                     <div class="address-row">
                         <div class="icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt""></i>
                         </div>
                         <div class="detail">
                             <p>Station Road, Khangad Sheri, Begampura, Surat</p>
@@ -451,7 +315,7 @@
                     </div>
                     <div class="address-row">
                         <div class="icon">
-                            <i class="far fa-envelope"></i>
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div class="detail">
                             <p>circulatelife021@gmail.com</p>
@@ -476,39 +340,7 @@
                             <li><a class="nav-link" style="color: aliceblue;" href="#contact">Contact US</a></li>
                         </ul>
                     </div>
-
                 </div>
-                <!-- <div class="col-lg-4 col-md-12 footer-form">
-                    <div class="form-card">
-                        <div class="form-title">
-                            <h4>Quick Message</h4>
-                        </div>
-                        <div class="form-body">
-                            <input type="text" placeholder="Enter Name" class="form-control">
-                            <input type="text" placeholder="Enter Mobile no" class="form-control">
-                            <input type="text" placeholder="Enter Email Address" class="form-control">
-                            <input type="text" placeholder="Your Message" class="form-control">
-                            <button class="btn btn-sm btn-primary w-100">Send Request</button>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div class="footer-copy">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <p>Copyright © <a href="https://www.smarteyeapps.com">Smarteyeapps.com</a> | All right reserved.</p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 socila-link">
-                        <ul>
-                            <li><a><i class="fab fa-github"></i></a></li>
-                            <li><a><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a><i class="fab fa-pinterest-p"></i></a></li>
-                            <li><a><i class="fab fa-twitter"></i></a></li>
-                            <li><a><i class="fab fa-facebook-f"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </footer>
 
