@@ -18,13 +18,13 @@
                 <h2 class="h2">Login to your account</h2>
                 <form action="logindata.php" method="post">
                     <?php
-                    $stored_username = isset($_COOKIE['username']) ? htmlspecialchars($_COOKIE['username']) : '';
+                    $stored_email = isset($_COOKIE['email']) ? htmlspecialchars($_COOKIE['email']) : '';
                     ?>
-                    <input type="text" name="username" id="username" placeholder="Username"
-                        value="<?php echo $stored_username; ?>" required="">
+                    <input type="email" name="email" id="email" placeholder="Email"
+                        value="<?php echo $stored_email; ?>" required="">
                     <input type="password" id="password" name="password" placeholder="Password" required="">
                     <div class="remember-me">
-                        <input type="checkbox" id="remember-me" name="remember_me" <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?>>
+                        <input type="checkbox" id="remember-me" name="remember_me" <?php echo isset($_COOKIE['email']) ? 'checked' : ''; ?>>
                         <label for="remember-me">Remember me</label>
                         <span style="margin-left: 155px;">
                             <a href="forgot_password.php">Forgot Password?</a>
