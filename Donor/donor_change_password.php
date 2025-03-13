@@ -3,12 +3,12 @@
 
 
 // Check if donor is logged in
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['email'])) {
     header('Location: login.php');
     exit;
 }
 
-$donorUsername = $_SESSION['username'];
+$donorUsername = $_SESSION['email'];
 $message = "";
 
 // Handle form submission to change password
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmPassword = $_POST['confirm_password'];
 
     // Fetch the current password hash from the database
-    $query = "SELECT password FROM donor WHERE username = ?";
+    $query = "SELECT password FROM donor WHERE email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $donorUsername);
     $stmt->execute();
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
                 // Update the password in the database
-                $updateQuery = "UPDATE donor SET password = ? WHERE username = ?";
+                $updateQuery = "UPDATE donor SET password = ? WHERE email = ?";
                 $updateStmt = $conn->prepare($updateQuery);
                 $updateStmt->bind_param("ss", $hashedPassword, $donorUsername);
 

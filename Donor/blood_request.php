@@ -32,7 +32,7 @@
       </thead>
       <tbody>
         <?php
-        $members = $conn->query("SELECT * FROM blood_request WHERE donor_username='" . $_SESSION['username'] . "'");
+        $members = $conn->query("SELECT * FROM blood_request WHERE donor_email='" . $_SESSION['email'] . "'");
         while ($row = $members->fetch_array()) {
           ?>
           <tr>

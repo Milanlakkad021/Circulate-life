@@ -2,7 +2,7 @@
 include('../connection.php');
 session_start();
 
-if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
+if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 	header('location:login.php');
 }
 ?>
@@ -41,7 +41,7 @@ if (!isset($_SESSION['username']) and $_SESSION['member_id'] == '') {
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<!-- <img src="../assets\images\img\user.png" class="img-circle" alt="Avatar"> -->
-							<span><?php echo $_SESSION['username']; ?></span>
+							<span><?php echo $_SESSION['email']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="admin_dashboard.php"><i

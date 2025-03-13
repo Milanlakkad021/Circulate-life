@@ -23,7 +23,7 @@
 
                 <!-- Search Form -->
                 <form class="form-inline my-2 my-lg-0" method="get" action="">
-                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by Username or Blood Group" aria-label="Search"
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by email or Blood Group" aria-label="Search"
                         value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="width: 310px;">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
                 </form>
@@ -32,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>Donation ID</th>
-                            <th>Username</th>
+                            <th>Email</th>
                             <th>Blood Group</th>
                             <th>Units</th>
                             <th>Blood</th>
@@ -44,7 +44,7 @@
                         $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
                         $donationsQuery = !empty($searchTerm) 
-                            ? "SELECT * FROM blood_donation WHERE username LIKE '%$searchTerm%' OR blood_group LIKE '%$searchTerm%'"
+                            ? "SELECT * FROM blood_donation WHERE email LIKE '%$searchTerm%' OR blood_group LIKE '%$searchTerm%'"
                             : "SELECT * FROM blood_donation";
 
                         $donations = $conn->query($donationsQuery);
@@ -52,7 +52,7 @@
                         while ($row = $donations->fetch_array()) {
                             echo "<tr>
                                 <td>{$row['id']}</td>
-                                <td>{$row['username']}</td>
+                                <td>{$row['email']}</td>
                                 <td>{$row['blood_group']}</td>
                                 <td>{$row['unit']}</td>
                                 <td>{$row['blood']}</td>

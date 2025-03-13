@@ -1,0 +1,6 @@
+
+
+INSERT INTO `blood_request` (`id`, `donor_email`, `recipient_email`, `name`, `age`, `blood_group`, `reason_for_blood`, `when_required`, `unit`, `hospital_name`, `doctor_name`, `gender`, `address`, `pincode`, `contact`, `email`, `file_upload`, `status`) VALUES
+(1, 'milanlakkadstdy@gmail.com', NULL, 'Nirav Lakkad', 45, 'B+', 'Surgery', '2024-10-17', 2, 'City Hospital', 'Dr. Shah', 'Male', '123 Green Avenue', '395007', '9876543210', 'nirav.patel@example.com', 'Hiii.pdf', 'reject'),
+(2, 'milanlakkdfsdfdadstdy@gmail.com', NULL, 'Raj Lakkad', 20, 'A-', 'Accident recovery', '2024-10-21', 1, 'Care Hospital', 'Dr. Mehta', 'Male', '45 River Street', '400001', '9898989898', 'neel.shah@example.com', 'Hiii.pdf', 'accept'),
+(3, NULL, 'milanlakkaddfsdfstdy@gmail.com', 'Vipul Lakkad', 32, 'A+', 'Emergency', '2024-10-20', 2, 'Global Hospital', 'Dr. Roy', 'Male', '456 Yellow Road', '411001', '9876543211', 'viraj.mehta@example.com', 'Hiii.pdf', 'pending');

@@ -9,7 +9,7 @@
         <thead>
           <tr>
             <th>Donation ID</th>
-            <th>Username</th>
+            <th>Email</th>
             <th>Blood Group</th>
             <th>Units</th>
             <th>Donation Date</th>
@@ -17,14 +17,14 @@
         </thead>
         <tbody>
           <?php
-          $username = $_SESSION['username']; // Assuming the username is stored in the session
-          $donations = $conn->query("SELECT * FROM blood_donation WHERE username='$username'");
+          $email = $_SESSION['email']; // Assuming the username is stored in the session
+          $donations = $conn->query("SELECT * FROM blood_donation WHERE email='$email'");
 
           while ($row = $donations->fetch_array()) {
             ?>
             <tr>
               <td><?php echo $row['id']; ?></td>
-              <td><?php echo $row['username']; ?></td>
+              <td><?php echo $row['email']; ?></td>
               <td><?php echo $row['blood_group']; ?></td>
               <td><?php echo $row['unit']; ?></td>
               <td><?php echo $row['donation_date']; ?></td>

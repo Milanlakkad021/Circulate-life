@@ -39,11 +39,11 @@ if (isset($_FILES['file_upload']) && $_FILES['file_upload']['error'] == UPLOAD_E
 }
 
 // Prepare and bind
-$username = $_SESSION['username']; // Get username from session
+$email = $_SESSION['email']; // Get username from session
 
 // Prepare query based on user type
-$insert = $conn->query("INSERT INTO blood_request (recipient_username, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
-    VALUES ('$username', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')");
+$insert = $conn->query("INSERT INTO blood_request (recipient_email, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
+    VALUES ('$email', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')");
 
 //$insert = $conn->query("INSERT INTO blood_request (username, name, age, blood_group, reason_for_blood, when_required, unit, hospital_name, doctor_name, gender, address, pincode, contact, email, file_upload) 
  //   VALUES ('".$_SESSION['username']."', '$name', '$age', '$blood_group', '$reason_for_blood', '$when_required', '$unit', '$hospital_name', '$doctor_name', '$gender', '$address', '$pincode', '$contact', '$email', '$file_upload')");

@@ -3,40 +3,35 @@ include('connection.php');
 session_start();
 
 $fullname = $_POST['fullname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
 $email = $_POST['email'];
+$password = $_POST['password'];
 $usertype = $_POST['usertype'];
 
 // Sanitize input
 $fullname = $conn->real_escape_string($fullname);
-$username = $conn->real_escape_string($username);
-$password = $conn->real_escape_string($password);
 $email = $conn->real_escape_string($email);
-$usertype = $conn->real_escape_string($usertype);
+$password = $conn->real_escape_string($password);
 
 // Hash the password before storing it
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 if ($usertype == 'donor') {
-    $body_weight = $_POST['body_weight'];
-    $body_height = $_POST['body_height'];
+    $dob = $_POST['dob'];
     $age = $_POST['age'];
+    $body_weight = $_POST['body_weight'];
     $blood_group = $_POST['blood_group'];
     $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
     $address = $_POST['address'];
     $pincode = $_POST['pincode'];
     $contact = $_POST['contact'];
     $file_upload = $_FILES['file_upload']['name'];
 
     // Sanitize donor input
-    $body_weight = $conn->real_escape_string($body_weight);
-    $body_height = $conn->real_escape_string($body_height);
+    $dob = $conn->real_escape_string($dob);
     $age = $conn->real_escape_string($age);
+    $body_weight = $conn->real_escape_string($body_weight);
     $blood_group = $conn->real_escape_string($blood_group);
     $gender = $conn->real_escape_string($gender);
-    $dob = $conn->real_escape_string($dob);
     $address = $conn->real_escape_string($address);
     $pincode = $conn->real_escape_string($pincode);
     $contact = $conn->real_escape_string($contact);
@@ -49,10 +44,10 @@ if ($usertype == 'donor') {
     }
 
     // Insert donor data into the database
-    $insert = $conn->query("INSERT INTO donor (name, username, password, email, usertype, body_weight, body_height, age, blood_group, gender, dob, address, pincode, contact, file_upload) VALUES ('$fullname', '$username', '$hashed_password', '$email', '$usertype', '$body_weight', '$body_height', '$age', '$blood_group', '$gender', '$dob', '$address', '$pincode', '$contact', '$file_upload')");
+    $insert = $conn->query("INSERT INTO donor (name, email, password, dob, age, body_weight, blood_group, gender, address, pincode, contact, file_upload) VALUES ('$fullname', '$email', '$hashed_password', '$dob',  '$age', '$body_weight',  '$blood_group', '$gender','$address', '$pincode', '$contact', '$file_upload')");
 } else {
     // Insert recipient data into the database
-    $insert = $conn->query("INSERT INTO recipient (name, username, password, email, usertype) VALUES ('$fullname', '$username', '$hashed_password', '$email', '$usertype')");
+    $insert = $conn->query("INSERT INTO recipient (name, email, password) VALUES ('$fullname', '$email', '$hashed_password')");
 }
 
 if ($insert) {

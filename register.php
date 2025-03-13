@@ -21,8 +21,6 @@
                     <input type="text" name="fullname" id="fullname" placeholder="Fullname" onkeypress="return blockNumbers(event)" onblur="capitalizeFirstLetter('fullname')" required>
                     <input type="email" name="email" id="email" placeholder="Email" onkeyup="checkEmail()" required>
                     <span id="emailStatus"></span>
-                    <input type="text" name="username" id="username" placeholder="Username" required onkeyup="checkUsername()">
-                    <span id="usernameStatus"></span>
                     <input type="password" id="password" name="password" placeholder="Password (Min 8 chars, 1 uppercase, 1 special char)" required>
                     <div class="become_donor">
                         <input type="checkbox" id="show-parent-info" onclick="toggleParentInfo()">
@@ -30,11 +28,11 @@
                     </div>
                     <div id="parent-info" class="hidden">
                         <div class="inline-fields">
-                            <input type="number" name="body_weight" id="body_weight" placeholder="Body Weight(kg)">
-                            <input type="number" name="body_height" id="body_height" placeholder="Body Height(ft)">
+                        <input type="date" id="dob" name="dob" placeholder="Date of Birth(YYYY-MM-DD)"><br>
+                        <input type="number" name="age" id="age" placeholder="Age" readonly>
                         </div>
                         <div class="inline-fields">
-                            <input type="number" name="age" id="age" placeholder="Age">
+                            <input type="number" name="body_weight" id="body_weight" placeholder="Body Weight(kg)">
                             <select name="blood_group" id="blood_group">
                                 <option value="">Select Blood Group</option>
                                 <option value="A+">A+</option>
@@ -56,7 +54,6 @@
                             <input type="radio" id="other" name="gender" value="other">
                             <label for="other">Other</label>
                         </div>
-                        <input type="text" id="dob" name="dob" placeholder="Date of Birth(YYYY-MM-DD)"><br>
                         <textarea name="address" id="ADDRESS" rows="5" style="resize:none;"
                             placeholder="Full Address"></textarea><br>
                         <input type="number" name="pincode" id="PINCODE" placeholder="Pincode"><br>

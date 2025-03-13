@@ -157,26 +157,26 @@ function checkEmail() {
 }
 
 
-function checkUsername() {
-    const username = document.getElementById('username').value;
-    const usernameStatus = document.getElementById('usernameStatus');
+// function checkUsername() {
+//     const username = document.getElementById('username').value;
+//     const usernameStatus = document.getElementById('usernameStatus');
 
-    if (username.length >= 5) {
-        fetch(`check_username.php?username=${username}`)
-            .then(response => response.text())
-            .then(data => {
-                if (data === 'available') {
-                    usernameStatus.innerHTML = '<span style="color: green;  display: block; margin-bottom: 20px; text-align: center;">Username is available!</span>';
-                } else if (data === 'taken') {
-                    usernameStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Username is already in use!</span>';
-                } else {
-                    usernameStatus.innerHTML = '<span style="color: orange;  display: block; margin-bottom: 20px; text-align: center;">Error checking username.</span>';
-                }
-            });
-    } else {
-        usernameStatus.innerHTML = '<span style="color: red;  display: block; margin-bottom: 20px; text-align: center;">Username must be at least 5 characters.</span>';
-    }
-}
+//     if (username.length >= 5) {
+//         fetch(`check_username.php?username=${username}`)
+//             .then(response => response.text())
+//             .then(data => {
+//                 if (data === 'available') {
+//                     usernameStatus.innerHTML = '<span style="color: green;  display: block; margin-bottom: 20px; text-align: center;">Username is available!</span>';
+//                 } else if (data === 'taken') {
+//                     usernameStatus.innerHTML = '<span style="color: red; display: block; margin-bottom: 20px; text-align: center;">Username is already in use!</span>';
+//                 } else {
+//                     usernameStatus.innerHTML = '<span style="color: orange;  display: block; margin-bottom: 20px; text-align: center;">Error checking username.</span>';
+//                 }
+//             });
+//     } else {
+//         usernameStatus.innerHTML = '<span style="color: red;  display: block; margin-bottom: 20px; text-align: center;">Username must be at least 5 characters.</span>';
+//     }
+// }
 
 
 // be come doner ..................
@@ -200,7 +200,12 @@ $(document).ready(function () {
     $("#dob").datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'yy-mm-dd',
+        yearRange: "-100:-18", // Allows selection of birth dates up to 100 years ago
+        maxDate: "-18Y", // Restricts date selection to 18+ years old
+        onSelect: function() {
+            calculateAge();
+        }
     });
     // Initialize Datepicker for #wr
     $("#wr").datepicker({
@@ -211,7 +216,21 @@ $(document).ready(function () {
     });
 });
 
+function calculateAge() {
+    let dob = $("#dob").val();
+    if (dob) {
+        let dobDate = new Date(dob);
+        let today = new Date();
+        let age = today.getFullYear() - dobDate.getFullYear();
+        let monthDiff = today.getMonth() - dobDate.getMonth();
 
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobDate.getDate())) {
+            age--;
+        }
+
+        $("#age").val(age);
+    }
+}
 
 
 
