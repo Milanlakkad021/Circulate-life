@@ -44,7 +44,7 @@ if ($usertype == 'donor') {
     }
 
     // Insert donor data into the database
-    $insert = $conn->query("INSERT INTO donor (name, email, password, dob, age, body_weight, blood_group, gender, address, pincode, contact, file_upload) VALUES ('$fullname', '$email', '$hashed_password', '$dob',  '$age', '$body_weight',  '$blood_group', '$gender','$address', '$pincode', '$contact', '$file_upload')");
+    $insert = $conn->query("INSERT INTO donor (name, email, password, dob, body_weight, blood_group, gender, address, pincode, contact, file_upload) VALUES ('$fullname', '$email', '$hashed_password', '$dob', '$body_weight',  '$blood_group', '$gender','$address', '$pincode', '$contact', '$file_upload')");
 } else {
     // Insert recipient data into the database
     $insert = $conn->query("INSERT INTO recipient (name, email, password) VALUES ('$fullname', '$email', '$hashed_password')");
