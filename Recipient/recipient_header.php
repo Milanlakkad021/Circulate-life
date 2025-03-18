@@ -2,8 +2,9 @@
 include('..//connection.php');
 session_start();
 
-if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
-	header('location:login.php');
+if (!isset($_SESSION['email']) || empty($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
 }
 ?>
 

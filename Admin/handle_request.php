@@ -25,15 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'circulatelife021@gmail.com'; // Your Gmail email
-            $mail->Password = 'lvzi taaq rmbo ydmt';    // Use App Password if 2FA is enabled
+            $mail->Password = 'ceor neoc qwkp udap';    // Use App Password if 2FA is enabled
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            //Recipients
-            $mail->setFrom('milanlakkad025@gmail.com', 'Circulate Life');
+            $mail->setFrom('circulatelife021@gmail.com', 'Circulate Life');
             $mail->addAddress($email);
 
-            // Email content
             $mail->isHTML(true);
             $subject = ($action === 'accept') ? 'Blood Request Accepted' : 'Blood Request Rejected';
             $body = ($action === 'accept')

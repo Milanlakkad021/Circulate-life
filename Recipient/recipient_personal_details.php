@@ -49,13 +49,6 @@ if ($result->num_rows > 0) {
                 <input type="password" class="form-control" id="password" name="password"
                     value="<?php echo $recipientDetails['password']; ?>" readonly>
             </div>
-
-            <!-- Display Usertype (read-only) -->
-            <div class="form-group">
-                <label for="usertype">User Type</label>
-                <input type="text" class="form-control" id="usertype" name="usertype"
-                    value="<?php echo $recipientDetails['usertype']; ?>" readonly>
-            </div>
         </form>
     </div>
 </div>

@@ -40,6 +40,7 @@ if ($result->num_rows == 1) {
         // Store user ID, email, and type in session variables
         $_SESSION['user_id'] = $fetch['id'];
         $_SESSION['email'] = $fetch['email'];
+        $_SESSION['name'] = $fetch['name'];
         $_SESSION['user_type'] = $user_type;
 
         // If "Remember me" is checked

@@ -66,11 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="password" class="form-control" id="password" name="password"
                     value="<?php echo $donorDetails['password']; ?>" readonly>
             </div>
-            <div class="form-group">
-                <label for="usertype">User Type</label>
-                <input type="text" class="form-control" id="usertype" name="usertype"
-                    value="<?php echo $donorDetails['usertype']; ?>" readonly>
-            </div>
         </form>
     </div>
 </div>
