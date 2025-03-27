@@ -40,7 +40,7 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<!-- <img src="../assets\images\img\user.png" class="img-circle" alt="Avatar"> -->
-							<span><?php echo $_SESSION['email']; ?></span>
+							<span><?php echo $_SESSION['name']; ?></span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="recipient_dashboard.php"><i

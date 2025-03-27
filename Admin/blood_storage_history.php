@@ -23,7 +23,7 @@
 
                 <!-- Search Form -->
                 <form class="form-inline my-2 my-lg-0" method="get" action="">
-                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by email or Blood Group" aria-label="Search"
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by emailk or Blood Group" aria-label="Search"
                         value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="width: 310px;">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
                 </form>
