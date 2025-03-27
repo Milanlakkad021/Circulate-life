@@ -34,7 +34,7 @@
         <?php
         $members = $conn->query("SELECT * FROM blood_request WHERE donor_email='" . $_SESSION['email'] . "'");
         while ($row = $members->fetch_array()) {
-          ?>
+        ?>
           <tr>
             <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['blood_group']; ?></td>
@@ -89,28 +89,28 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <form action="blood_request_data.php" method="post" enctype="multipart/form-data"
-          onsubmit="return validateForm()">
+        <form action="blood_request_data.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
           <input type="text" name="name" id="name" placeholder="Patient Name" onkeypress="return blockNumbers(event)"
             onblur="capitalizeFirstLetter('name')" required>
           <div class="inline-fields">
             <input type="number" name="age" id="age" placeholder="Age" required>
-            <select name="blood_group" id="blood_group" required>
+            <select name="blood_group" id="blood_group" required onchange="checkAvailability()">
               <option value="">Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
               <option value="B+">B+</option>
               <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
               <option value="AB+">AB+</option>
               <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
             </select>
           </div>
+          <input type="number" name="unit" id="unit" placeholder="Unit of Blood"
+            oninput="limitInputLengthAndPositive('unit', 2); checkAvailability()" required>
+          <div id="availability-msg" style="color: red; font-weight: bold;"></div>
           <input type="text" name="reson" id="reson" placeholder="Reason For Blood" required>
           <input type="text" id="wr" name="wr" placeholder="When Required" required>
-          <input type="number" name="unit" id="unit" placeholder="Unit of Blood"
-            oninput="limitInputLengthAndPositive('unit', 4)" required>
           <input type="text" name="hname" id="hname" placeholder="Hospital Name" onkeypress="return blockNumbers(event)"
             onblur="capitalizeFirstLetter('hname')" required>
           <input type="text" name="dname" id="dname" placeholder="Doctor Name" onkeypress="return blockNumbers(event)"
@@ -146,6 +146,32 @@
   </div>
 </div>
 <?php include('donor_footer.php'); ?>
+<script>
+  function checkAvailability() {
+    const bloodGroup = document.getElementById('blood_group').value;
+    const unit = document.getElementById('unit').value;
+
+    if (bloodGroup && unit) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "check_blood_availability.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Use encodeURIComponent to properly send the + sign
+        const params = `blood_group=${encodeURIComponent(bloodGroup)}&unit=${unit}`;
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.getElementById('availability-msg').innerHTML = xhr.responseText;
+            }
+        };
+
+        xhr.send(params);
+    } else {
+        document.getElementById('availability-msg').innerHTML = "";
+    }
+}
+</script>
 </body>
+
 
 </html>
