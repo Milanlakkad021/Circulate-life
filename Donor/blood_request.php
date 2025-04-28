@@ -60,17 +60,28 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                  <p>Want to delete?</p>
+                  <p>
+                    <?php if ($row['status'] == 'pending') : ?>
+                      Want to delete this request?
+                    <?php else : ?>
+                      You cannot delete this request as it is already <strong><?php echo $row['status']; ?></strong>.
+                    <?php endif; ?>
+                  </p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <a href="delete_request.php?id=<?php echo $row['id']; ?>">
-                    <button type="button" class="btn btn-danger">Delete</button>
-                  </a>
+                  <?php if ($row['status'] == 'pending') : ?>
+                    <a href="delete_request.php?id=<?php echo $row['id']; ?>">
+                      <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                  <?php else : ?>
+                    <button type="button" class="btn btn-danger" disabled>Cannot Delete</button>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
           </div>
+
           <!-- end of delete request modal -->
         <?php }
         ?>
@@ -152,24 +163,24 @@
     const unit = document.getElementById('unit').value;
 
     if (bloodGroup && unit) {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "check_blood_availability.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "check_blood_availability.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-        // Use encodeURIComponent to properly send the + sign
-        const params = `blood_group=${encodeURIComponent(bloodGroup)}&unit=${unit}`;
+      // Use encodeURIComponent to properly send the + sign
+      const params = `blood_group=${encodeURIComponent(bloodGroup)}&unit=${unit}`;
 
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                document.getElementById('availability-msg').innerHTML = xhr.responseText;
-            }
-        };
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          document.getElementById('availability-msg').innerHTML = xhr.responseText;
+        }
+      };
 
-        xhr.send(params);
+      xhr.send(params);
     } else {
-        document.getElementById('availability-msg').innerHTML = "";
+      document.getElementById('availability-msg').innerHTML = "";
     }
-}
+  }
 </script>
 </body>
 

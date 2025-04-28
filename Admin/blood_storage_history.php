@@ -23,7 +23,7 @@
 
                 <!-- Search Form -->
                 <form class="form-inline my-2 my-lg-0" method="get" action="">
-                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by emailk or Blood Group" aria-label="Search"
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by email or Blood Group" aria-label="Search"
                         value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="width: 310px;">
                     <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
                 </form>
@@ -110,8 +110,7 @@
                         <div class="modal-body">
                             <form action="add_expir_blood_entry.php" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="blood_group">Blood Group</label>
-                                    <select name="blood_group" id="blood_group" class="form-control" required>
+                                    <select name="blood_group" id="blood_group" required>
                                         <option value="">Select Blood Type</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
@@ -124,8 +123,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="unit">Units</label>
-                                    <input type="number" name="unit" id="unit" class="form-control" placeholder="Unit" min="1" required>
+                                    <input type="number" name="unit" id="unit" placeholder="Unit" min="1" required>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

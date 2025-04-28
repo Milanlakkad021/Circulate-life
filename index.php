@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/plugins/grid-gallery/css/grid-gallery.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?v=1.0" />
     <link rel="stylesheet" href="css/linearicons/style.css">
-    
+
 
 </head>
 
@@ -162,7 +162,8 @@
                 <h2 class="text-center">Types of Donation</h2>
                 <p class="text-center">The average human body contains about five liters of blood, which is made of
                     several cellular and non-cellular components such as <strong>Red blood cell</strong>,
-                    <strong>Platelet</strong>, and <strong>Plasma</strong>.</p>
+                    <strong>Platelet</strong>, and <strong>Plasma</strong>.
+                </p>
                 <p class="text-center">Each type of component has its unique properties and can be used for different
                     indications. The donated blood is separated into these components by the blood centre, and one
                     donated unit can save up to four lives depending on the number of components separated from your
@@ -301,16 +302,21 @@
     <!--*************** Footer  Starts Here *************** -->
     <footer id="contact" class="container-fluid">
         <div class="container">
-
             <div class="row content-ro">
                 <div class="col-lg-4 col-md-12 footer-contact">
                     <h2>Contact Informatins</h2>
                     <div class="address-row">
                         <div class="icon">
-                            <i class="fas fa-map-marker-alt""></i>
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="detail">
-                            <p>Station Road, Khangad Sheri, Begampura, Surat</p>
+                            <p>
+                                <a href="https://www.google.com/maps?q=Station+Road,+Khangad+Sheri,+Begampura,+Surat"
+                                    target="_blank"
+                                    style="color: inherit; text-decoration: none;">
+                                    Station Road, Khangad Sheri, Begampura, Surat
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <div class="address-row">
@@ -341,7 +347,7 @@
                         </ul>
                     </div>
                 </div>
-        </div>
+            </div>
     </footer>
 
 

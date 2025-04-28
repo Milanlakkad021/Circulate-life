@@ -48,7 +48,7 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-home"></i>Dashboard</a>
 							<a class="dropdown-item" href="donor_personal_details.php"><i class="lnr lnr-user"></i> My
 								Profile</a>
-							<a class="dropdown-item"  data-toggle="modal" data-target="#logout"><i
+							<a class="dropdown-item" data-toggle="modal" data-target="#logout"><i
 									class="lnr lnr-exit"></i> Logout</a>
 						</div>
 					</li>
@@ -67,6 +67,8 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-drop"></i>Request For Blood</a></li>
 						<li class="nav-item"><a class="nav-link" href="donor_donetion.php"><i
 									class="lnr lnr-history"></i>Donet History</a></li>
+						<li class="nav-item"><a class="nav-link" href="appointment.php"><i
+									class="lnr lnr-history"></i>Appointment</a></li>
 					</ul>
 				</nav>
 			</div>

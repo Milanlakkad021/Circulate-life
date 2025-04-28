@@ -250,3 +250,52 @@ function toggleSidebar() {
         main.classList.add('main-collapsed');
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function setupEmailBlurHandler(emailInputId, bloodGroupSelectId, userType) {
+        const emailInput = document.getElementById(emailInputId);
+        const bloodGroupSelect = document.getElementById(bloodGroupSelectId);
+
+        emailInput.addEventListener('blur', function () {
+            const email = emailInput.value.trim();
+
+            if (email !== '') {
+                fetch('get_bloodgroup.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'email=' + encodeURIComponent(email)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data !== 'not_found') {
+                        bloodGroupSelect.value = data;
+
+                        if (userType === 'recipient') {
+                            bloodGroupSelect.disabled = false;
+                            bloodGroupSelect.readOnly = false;
+                        }
+                    } else {
+                        alert("Email not found in " + (userType === 'donor' ? "donor or recipient" : "recipient") + " table.");
+                        bloodGroupSelect.value = '';
+                        
+                        if (userType === 'recipient') {
+                            bloodGroupSelect.disabled = true;
+                            bloodGroupSelect.readOnly = true;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching blood group:', error);
+                });
+            }
+        });
+    }
+
+    // Setup both handlers
+    setupEmailBlurHandler('donor_email', 'blood_group', 'donor');
+    setupEmailBlurHandler('recipient_email', 'remove_blood_group', 'recipient');
+});
+

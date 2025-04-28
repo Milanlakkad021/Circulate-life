@@ -8,35 +8,43 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $request_id = $_POST['request_id'];
+    $appointment_id = $_POST['appointment_id'] ?? null;
+    $request_id = $_POST['request_id'] ?? null;
     $email = $_POST['email'];
     $action = $_POST['action'];
 
-    // Update the status in the database based on the action
     $status = ($action === 'accept') ? 'accept' : 'reject';
-    $sql = "UPDATE blood_request SET status='$status' WHERE id='$request_id'";
+
+    // Determine which type of request we're handling
+    if ($appointment_id) {
+        $sql = "UPDATE appointment SET status='$status' WHERE id='$appointment_id'";
+    } elseif ($request_id) {
+        $sql = "UPDATE blood_request SET status='$status' WHERE id='$request_id'";
+    } else {
+        echo 'Invalid request.';
+        exit;
+    }
 
     if ($conn->query($sql) === TRUE) {
-        // Send an email based on the action
         $mail = new PHPMailer(true);
 
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'circulatelife021@gmail.com'; // Your Gmail email
-            $mail->Password = 'ceor neoc qwkp udap';    // Use App Password if 2FA is enabled
+            $mail->Username = 'circulatelife021@gmail.com';
+            $mail->Password = 'upiv wlif ibyc gjjt';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
             $mail->setFrom('circulatelife021@gmail.com', 'Circulate Life');
             $mail->addAddress($email);
+            $mail->isHTML(true);
 
             $mail->isHTML(true);
-            $subject = ($action === 'accept') ? 'Blood Request Accepted' : 'Blood Request Rejected';
-            $body = ($action === 'accept')
-                ? '
-                    <html>
+            $subject = ($action === 'accept') ? 'Appointment Accepted' : 'Appointment Rejected';
+            $body = ($action === 'accept') ? '
+                <html>
                         <head>
                             <style>
                                 body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; }
@@ -51,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <body>
                             <div class="email-container">
                                 <div class="email-header">
-                                    <img src="<absolute-path-to-logo>" alt="Circulate Life Logo">
+                                    <img src="../assets/images/Circulate Life.png" alt="Circulate Life Logo">
                                     <h1>Circulate Life</h1>
                                 </div>
                                 <div class="email-body">
@@ -95,11 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="email-body">
                                     <p>Dear User,</p>
                                     <h3>Your blood request has been <strong>accepted</strong>.</h3>
-                                    <p>We regret to inform you that your blood request has been <strong>rejected</strong>. If you have any questions, please contact our support team at <a href="mailto:support@circulatelife.com">support@circulatelife.com</a>.</p>
+                                    <p>We regret to inform you that your blood request has been <strong>rejected</strong>. If you have any questions, please contact our support team at Contect us.</p>
                                     <p>Thank you for understanding.</p>
                                 </div>
                                 <div class="email-footer">
-                                    <p>&copy; 2024 Circulate Life. All Rights Reserved.</p>
                                     <p><a href="https://circulatelife.com">Visit Circulate Life Website</a></p>
                                 </div>
                             </div>
@@ -115,8 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
         }
     } else {
-        echo 'Error updating request: ' . $conn->error;
+        echo 'Error updating Request: ' . $conn->error;
     }
 }
+
 $conn->close();
-?>

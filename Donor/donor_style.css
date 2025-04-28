@@ -39,6 +39,7 @@ input[type="checkbox"]{
 
 textarea[name="address"],
 input[type="number"],
+select[name="time"],
 select[name="blood_group"] {
     padding: 10px;
     width: 100%;

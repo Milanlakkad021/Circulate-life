@@ -22,7 +22,7 @@ include('../connection.php'); ?>
                 <?php
                 $members = $conn->query("SELECT * FROM blood_storage");
                 while ($row = $members->fetch_array()) {
-                    ?>
+                ?>
 
                     <tr>
                         <td><?php echo $row['id']; ?></td>
@@ -47,9 +47,9 @@ include('../connection.php'); ?>
             </div>
             <div class="modal-body">
                 <form action="add_blood_entry.php" method="post" enctype="multipart/form-data">
-                    <input type="text" name="donor_username" id="donor_username" placeholder="Donor Username" required>
+                    <input type="text" name="donor_email" id="donor_email" placeholder="Donor Email" required>
                     <div class="inline-fields">
-                        <select name="blood_group" id="blood_group" required>
+                        <select name="blood_group" id="blood_group" required readonly disabled>
                             <option value="">Select Blood Type</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -60,6 +60,7 @@ include('../connection.php'); ?>
                             <option value="AB+">AB+</option>
                             <option value="AB-">AB-</option>
                         </select>
+
                         <input type="number" name="unit" id="unit" placeholder="Unit" min="1" required>
                     </div>
                     <div class="modal-footer">
@@ -82,9 +83,9 @@ include('../connection.php'); ?>
             </div>
             <div class="modal-body">
                 <form action="remove_blood_entry.php" method="post" enctype="multipart/form-data">
-                    <input type="text" name="donor_username" id="donor_username" placeholder="Username" required>
+                    <input type="text" name="recipient_email" id="recipient_email" placeholder="Email" required>
                     <div class="inline-fields">
-                        <select name="blood_group" id="blood_group" required>
+                    <select name="blood_group" id="remove_blood_group" required readonly disabled>
                             <option value="">Select Blood Type</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -109,5 +110,8 @@ include('../connection.php'); ?>
 
 <?php $conn->close(); ?>
 <?php include('admin_footer.php'); ?>
+
+
 </body>
+
 </html>

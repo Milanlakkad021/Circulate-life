@@ -31,7 +31,7 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 						<form class="form-inline">
 							<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search dashboard..." aria-label="Search"> -->
 							<!-- <button class="btn btn-primary my-2 my-sm-0" type="submit">Go</button> -->
-							<img src="../assets/images/Circulate Life.png" alt="Avatar" style="height:80px;">
+							<img src="../assets/images/Circulate Life.png" alt="Drop of blood image" style="height:80px;">
 						</form>
 					</li>
 				</ul>
@@ -62,7 +62,7 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 					<ul class="nav">
 						<li class="nav-item"><a class="nav-link" href="admin_dashboard.php"><i
 									class="lnr lnr-home"></i>Dashboard</a></li>
-						<li class="nav-item"><a class="nav-link" href="admin_receipent.php"><i
+						<li class="nav-item"><a class="nav-link" href="admin_recipient.php"><i
 									class="lnr lnr-user"></i>Recipent</a></li>
 						<li class="nav-item"><a class="nav-link" href="admin_donor.php"><i
 									class="lnr lnr-user"></i>Donor</a></li>
@@ -72,6 +72,8 @@ if (!isset($_SESSION['email']) and $_SESSION['member_id'] == '') {
 									class="lnr lnr-book"></i>History</a></li>
 						<li class="nav-item"><a class="nav-link" href="blood_requests.php"><i
 									class="lnr lnr-drop"></i>Blood Request</a></li>
+						<li class="nav-item"><a class="nav-link" href="blood_appointment.php"><i
+									class="lnr lnr-drop"></i>Appointment</a></li>
 					</ul>
 				</nav>
 			</div>

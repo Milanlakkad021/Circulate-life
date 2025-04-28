@@ -1,4 +1,4 @@
-<?php include('donor_header.php'); include('../connection.php') ?>
+<?php include('donor_header.php'); ?>
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="container-fluid">
@@ -13,6 +13,7 @@
             <th>Blood Group</th>
             <th>Units</th>
             <th>Donation Date</th>
+            <th>Certificate</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
               <td><?php echo $row['blood_group']; ?></td>
               <td><?php echo $row['unit']; ?></td>
               <td><?php echo $row['donation_date']; ?></td>
+              <td>
+                <a href="generate_certificate.php?donation_id=<?php echo $row['id']; ?>" class="btn btn-primary">Download Certificate</a>
+              </td>
             </tr>
           <?php } ?>
         </tbody>

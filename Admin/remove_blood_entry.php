@@ -4,18 +4,18 @@ include('../connection.php');
 
 if (isset($_POST['addBloodEntry'])) {
     // Sanitize and retrieve form data
-    $donor_username = $conn->real_escape_string($_POST['donor_username']);
+    $recipient_email = $conn->real_escape_string($_POST['recipient_email']);
     $blood_group = $conn->real_escape_string($_POST['blood_group']);
     $unit = (int)$_POST['unit']; // Cast to integer to ensure it's a number
 
-    // Check if the donor username exists in the donor table
-    $checkUserQuery = "SELECT * FROM donor WHERE username = '$donor_username'";
+    // Check if the donor email exists in the donor table
+    $checkUserQuery = "SELECT * FROM recipient WHERE email = '$recipient_email'";
     $userResult = $conn->query($checkUserQuery);
 
     if ($userResult->num_rows > 0) {
         // Insert into blood_donation table with 'removed' as blood status
-        $sql = "INSERT INTO blood_donation (username, blood_group, unit, blood) 
-                VALUES ('$donor_username', '$blood_group', $unit, 'removed')";
+        $sql = "INSERT INTO blood_donation (email, blood_group, unit, blood) 
+                VALUES ('$recipient_email', '$blood_group', $unit, 'removed')";
 
         // Execute the insertion query for blood_donation
         if ($conn->query($sql) === TRUE) {
@@ -44,8 +44,8 @@ if (isset($_POST['addBloodEntry'])) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
-        // Username not found, print a message
-        echo "Error: The username '$donor_username' does not exist in the donor table.";
+        // email not found, print a message
+        echo "Error: The email '$recipient_email' does not exist in the donor table.";
     }
 }
 
