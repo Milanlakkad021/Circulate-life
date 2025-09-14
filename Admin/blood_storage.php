@@ -9,6 +9,9 @@ include('../connection.php'); ?>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBloodEntry">Add Blood Entry</button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#removeBloodEntry">Remove Blood Entry</button>
         </p>
+        
+        <input type="text" id="searchBloodGroup" class="form-control mb-3" placeholder="Search Blood Group..." aria-label="Search"
+        style="width: 310px;">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -111,6 +114,20 @@ include('../connection.php'); ?>
 <?php $conn->close(); ?>
 <?php include('admin_footer.php'); ?>
 
+<script>
+document.getElementById("searchBloodGroup").addEventListener("keyup", function() {
+    var input = this.value.toUpperCase();
+    var rows = document.querySelector("table tbody").rows;
+
+    for (var i = 0; i < rows.length; i++) {
+        var bloodGroupCell = rows[i].cells[1]; // 2nd column is blood group
+        if (bloodGroupCell) {
+            var txtValue = bloodGroupCell.textContent || bloodGroupCell.innerText;
+            rows[i].style.display = txtValue.toUpperCase().indexOf(input) > -1 ? "" : "none";
+        }
+    }
+});
+</script>
 
 </body>
 
