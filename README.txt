@@ -44,6 +44,38 @@ Circulate Life is a web-based application designed to manage blood bank operatio
    http://localhost/Circulate%20life/
 
 ---
+
+💡 Functionality
+1. Authentication & User Management
+		Registration: Users can sign up by providing their details, email, and password.
+		Login: Secure login with session handling.
+		Email/Username Validation: Real-time checks prevent duplicate accounts.
+		Forgot Password: Users can reset their password through email verification.
+
+2.Donor & Recipient Management
+
+		Add, edit, and remove blood donors with information such as name, blood group, contact, and last donation date.
+
+		Maintain recipient records including requests and fulfilled donations.
+
+3.Blood Inventory Tracking
+
+		Monitor available blood units by type (A+, O-, etc.).
+		Update stock after donation or transfusion.
+
+4.Administrative Dashboard
+
+		View key statistics (total donors, stock levels, pending requests).
+		Manage users and blood bank records.
+
+5.Additional Modules (optional / to verify)
+
+		Appointment scheduling for donation.
+		SMS/Email alerts for urgent requirements.
+		Report generation for stock and donor activity.
+
+---
+
 ## 🔐 Password 
 
  Admin
@@ -60,6 +92,21 @@ Circulate Life is a web-based application designed to manage blood bank operatio
  Passord = User@123
  
 ---
+
+🌟 Features (Planned/Implemented)
+
+User registration and login ✅
+
+Forgot password / reset functionality ✅
+
+Real-time email and username availability ✅
+
+Donor and recipient management 🔄
+
+Blood inventory management 🔄
+
+Reporting and analytics (future enhancement) 📝
+
 
 ## 👥 Author
 
